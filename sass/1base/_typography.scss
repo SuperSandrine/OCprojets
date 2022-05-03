@@ -1,0 +1,59 @@
+p {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 200;
+}
+button {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  i {
+    font-size: 1.3rem;
+  }
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  padding: 10px 0 20px 0;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 200;
+}
+
+/***footer***/
+h3 {
+  font-family: "Shrikhand";
+  color: lightgrey;
+  font-size: 1.3rem;
+}
+li {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  list-style: none;
+  color: lightgrey;
+}
+.searchbar {
+  color: rgb(74, 74, 74);
+  font-family: "Roboto", sans-serif;
+  input {
+    font-size: 0.95rem;
+    font-weight: 600;
+    &:focus {
+      color: $colour-primary;
+    }
+    /*comment passer du noir une fois rempli au gris?
+    Pourquoi la feuille user-agent passe avant*/
+  }
+}

@@ -11,8 +11,32 @@
   /* à placer après d'après un article dans stackoverflow */
 }
 
-body {
-  background-color: #9356dc;
+p {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 200;
+}
+
+button {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
+button i {
+  font-size: 1.3rem;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  padding: 10px 0 20px 0;
 }
 
 p {
@@ -21,22 +45,205 @@ p {
   font-weight: 200;
 }
 
-h1 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-size: 1.5rem;
+/***footer***/
+h3 {
+  font-family: "Shrikhand";
+  color: lightgrey;
+  font-size: 1.3rem;
 }
 
-h2 {
+li {
   font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  list-style: none;
+  color: lightgrey;
+}
+
+.searchbar {
+  color: rgb(74, 74, 74);
+  font-family: "Roboto", sans-serif;
+}
+.searchbar input {
+  font-size: 0.95rem;
   font-weight: 600;
-  font-size: 1.5rem;
+  /*comment passer du noir une fois rempli au gris?
+  Pourquoi la feuille user-agent passe avant*/
+}
+.searchbar input:focus {
+  color: #9356dc;
 }
 
 button {
-  font-family: "Roboto", sans-serif;
-  font-weight: 600;
-  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+}
+
+.button__cta {
+  /*les boutons violets, présents sur accueil et menu*/
+  /* test plutôt sympa:
+    background: linear-gradient(
+    to right bottom,
+    $colour-secondary,
+    $colour-primary 60px
+  );*/
+  background: radial-gradient(at 30% -90%, #ff79da 20px, #9356dc);
+  width: fit-content;
+  height: 50px;
+  color: rgb(246, 246, 246);
+  border-radius: 25px;
+  padding: 0 20px;
+  box-shadow: 3px 3px 10px rgb(200, 200, 200);
+}
+.button__cta:hover {
+  /* une fonction pour éclaircir le bouton */
+  box-shadow: 8px 8px 15px rgb(170, 170, 170);
+}
+
+.button__manual {
+  /* - les boutons de fonctionnement, présents sur accueil, gris > violet
+     - choix d'un alignement des i et textes sur la gauche */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  background-color: rgb(246, 246, 246);
+  width: 97%;
+  height: 65px;
+  font-weight: 500;
+  border-radius: 15px;
+  padding: 0 20px;
+  box-shadow: 3px 3px 10px rgb(220, 220, 220);
+  /* - une fonction pour définir la couleur de i par rapport au fond
+    - utiliser cette fonction avec des teintes de couelur primaire en survol*/
+}
+.button__manual i {
+  padding: 0 25px;
+  color: rgb(130, 130, 130);
+}
+.button__manual label {
+  position: absolute;
+  left: -15px;
+  background-color: #9356dc;
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  color: rgb(246, 246, 246);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button__text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button__return {
+  /*les boutons du header de menu
+    pour revenir à accueil*/
+}
+
+.button__checked {
+  /* les boutons pour valider choix,
+    apparaissent avec un survol*/
+}
+
+/*attention à l'ordre des imports*/
+a,
+a:link,
+a:visited,
+a:focus,
+a:active {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* header */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 0 15px 0;
+  max-width: 100%;
+  box-shadow: 0px 4px 4px lightgrey;
+  z-index: 2;
+}
+.header img {
+  height: 30px;
+}
+.header button {
+  display: none;
+}
+
+.searchbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  background-color: rgba(1, 1, 1, 0.1);
+  /*fond transparent pour récupérer l'ombre, pourquoi pas z-index?*/
+}
+.searchbar input {
+  height: 100%;
+  width: fit-content;
+  display: flex;
+  text-align: center;
+  background: none;
+  border: none;
+  padding: 0 10px;
+  /* la feuille de style de user agent passe avant la mienne?
+  voir typo et gestion des couleur et grasse notamment*/
+}
+.searchbar input:focus-visible {
+  outline: none;
+}
+.searchbar input::placeholder {
+  width: fit-content;
+  /*si, auto,Pourquoi belleville est coupé?, 
+  pourquoi la boite ne s'ajuste pas au texte?*/
+}
+
+#presentation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;
+  background-color: rgb(246, 246, 246);
+  text-align: center;
+  align-items: center;
+  height: 270px;
+}
+#presentation h1 {
+  padding: 0 40px 20px 40px;
+}
+#presentation p {
+  padding-bottom: 20px;
+}
+
+#manual {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;
+  height: 400px;
+}
+#manual .manuallist {
+  height: 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+#restaurants {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;
+  background-color: rgb(246, 246, 246);
+  height: 250px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -5,32 +5,103 @@
   -ms-box-sizing: border-box; /* Pour IE */
   box-sizing: border-box; /* à placer après d'après un article dans stackoverflow */
 }
-
 @import "./2utils/variables";
+@import "./1base/typography";
+@import "./4components/buttons";
 
-body {
-  background-color: $colour-primary;
+/*attention à l'ordre des imports*/
+
+a,
+a:link,
+a:visited,
+a:focus,
+a:active {
+  text-decoration: none;
+  cursor: pointer;
 }
 
-p {
-  font-family: "Roboto", sans-serif;
-  font-size: 1.2rem;
-  font-weight: 200;
+/* header */
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 0 15px 0;
+  max-width: 100%;
+  box-shadow: 0px 4px 4px lightgrey;
+  z-index: 2;
+  img {
+    height: 30px;
+  }
+  button {
+    display: none;
+  }
 }
 
-h1 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-size: 1.5rem;
-}
-h2 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 600;
-  font-size: 1.5rem;
+.searchbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  background-color: rgba(1, 1, 1, 0.1);
+  /*fond transparent pour récupérer l'ombre, pourquoi pas z-index?*/
+  input {
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    text-align: center;
+    background: none;
+    border: none;
+    padding: 0 10px;
+    &:focus-visible {
+      outline: none;
+    }
+    &::placeholder {
+      width: fit-content;
+      /*si, auto,Pourquoi belleville est coupé?, 
+      pourquoi la boite ne s'ajuste pas au texte?*/
+    }
+    /* la feuille de style de user agent passe avant la mienne?
+    voir typo et gestion des couleur et grasse notamment*/
+  }
 }
 
-button {
-  font-family: "Roboto", sans-serif;
-  font-weight: 600;
-  font-size: 0.9rem;
+@mixin flexcolumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+#presentation {
+  @include flexcolumn;
+  background-color: $colour-achromatic;
+  text-align: center;
+  align-items: center;
+  height: 270px;
+  h1 {
+    padding: 0 40px 20px 40px;
+  }
+  p {
+    padding-bottom: 20px;
+  }
+}
+
+#manual {
+  @include flexcolumn;
+  height: 400px;
+  .manuallist {
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+  }
+}
+
+#restaurants {
+  @include flexcolumn;
+  background-color: $colour-achromatic;
+  height: 250px;
 }
