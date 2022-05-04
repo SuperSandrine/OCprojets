@@ -50,10 +50,9 @@ li {
   input {
     font-size: 0.95rem;
     font-weight: 600;
+    color: rgb(74, 74, 74);
     &:focus {
       color: $colour-primary;
     }
-    /*comment passer du noir une fois rempli au gris?
-    Pourquoi la feuille user-agent passe avant*/
   }
 }

@@ -23,10 +23,24 @@ button {
   padding: 0 20px;
   box-shadow: 3px 3px 10px rgb(200, 200, 200);
   &:hover {
-    /* une fonction pour éclaircir le bouton */
+    background: radial-gradient(
+      at 30% -90%,
+      lighten($colour-secondary, 10%) 20px,
+      lighten($colour-primary, 10%)
+    );
     box-shadow: 8px 8px 15px rgb(170, 170, 170);
   }
 }
+
+@function backeti($colour) {
+  @if (lightness($colour) < 55%) {
+    @return lighten($colour, 46%);
+  } @else {
+    @return lighten($colour, 37%);
+  }
+}
+// il m'a fallu passer de la valeur HEX à HLS et RGB à HLS
+// et trouver le point de rupture entre les deux couleurs
 
 .button {
   &__manual {
@@ -36,7 +50,7 @@ button {
     justify-content: flex-start;
     align-items: center;
     position: relative;
-    background-color: $colour-achromatic;
+    background-color: backeti($colour-darkachromatic);
     width: 97%;
     height: 65px;
     font-weight: 500;
@@ -45,7 +59,7 @@ button {
     box-shadow: 3px 3px 10px rgb(220, 220, 220);
     i {
       padding: 0 25px;
-      color: rgb(130, 130, 130);
+      color: $colour-darkachromatic;
     }
     /* - une fonction pour définir la couleur de i par rapport au fond
       - utiliser cette fonction avec des teintes de couelur primaire en survol*/
@@ -60,6 +74,12 @@ button {
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+    &:hover {
+      i {
+        color: $colour-primary;
+      }
+      background-color: backeti($colour-primary);
     }
   }
   &__text {

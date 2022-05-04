@@ -1,16 +1,4 @@
 @charset "UTF-8";
-* {
-  /* box-sizing est appliqué à tous les éléments */
-  -moz-box-sizing: border-box;
-  /* Firefox, autres Gecko */
-  -webkit-box-sizing: border-box;
-  /* Safari/Chrome, autres WebKit */
-  -ms-box-sizing: border-box;
-  /* Pour IE */
-  box-sizing: border-box;
-  /* à placer après d'après un article dans stackoverflow */
-}
-
 p {
   font-family: "Roboto", sans-serif;
   font-size: 1.2rem;
@@ -67,8 +55,7 @@ li {
 .searchbar input {
   font-size: 0.95rem;
   font-weight: 600;
-  /*comment passer du noir une fois rempli au gris?
-  Pourquoi la feuille user-agent passe avant*/
+  color: rgb(74, 74, 74);
 }
 .searchbar input:focus {
   color: #9356dc;
@@ -96,7 +83,7 @@ button {
   box-shadow: 3px 3px 10px rgb(200, 200, 200);
 }
 .button__cta:hover {
-  /* une fonction pour éclaircir le bouton */
+  background: radial-gradient(at 30% -90%, #fface8 20px, #ae80e5);
   box-shadow: 8px 8px 15px rgb(170, 170, 170);
 }
 
@@ -107,7 +94,7 @@ button {
   justify-content: flex-start;
   align-items: center;
   position: relative;
-  background-color: rgb(246, 246, 246);
+  background-color: #f7f7f7;
   width: 97%;
   height: 65px;
   font-weight: 500;
@@ -132,6 +119,12 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.button__manual:hover {
+  background-color: #f7f2fc;
+}
+.button__manual:hover i {
+  color: #9356dc;
 }
 .button__text {
   display: flex;
@@ -203,6 +196,8 @@ a:active {
   width: fit-content;
   /*si, auto,Pourquoi belleville est coupé?, 
   pourquoi la boite ne s'ajuste pas au texte?*/
+  /* axe amélioration: fit content partiellement accepté,
+  mais répondait au comportement désiré, possible en js */
 }
 
 #presentation {

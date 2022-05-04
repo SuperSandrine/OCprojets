@@ -1,10 +1,3 @@
-* {
-  /* box-sizing est appliqué à tous les éléments */
-  -moz-box-sizing: border-box; /* Firefox, autres Gecko */
-  -webkit-box-sizing: border-box; /* Safari/Chrome, autres WebKit */
-  -ms-box-sizing: border-box; /* Pour IE */
-  box-sizing: border-box; /* à placer après d'après un article dans stackoverflow */
-}
 @import "./2utils/variables";
 @import "./1base/typography";
 @import "./4components/buttons";
@@ -61,6 +54,8 @@ a:active {
       width: fit-content;
       /*si, auto,Pourquoi belleville est coupé?, 
       pourquoi la boite ne s'ajuste pas au texte?*/
+      /* axe amélioration: fit content partiellement accepté,
+      mais répondait au comportement désiré, possible en js */
     }
     /* la feuille de style de user agent passe avant la mienne?
     voir typo et gestion des couleur et grasse notamment*/
