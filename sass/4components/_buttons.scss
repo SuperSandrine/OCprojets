@@ -36,7 +36,7 @@ button {
   @if (lightness($colour) < 55%) {
     @return lighten($colour, 46%);
   } @else {
-    @return lighten($colour, 37%);
+    @return lighten($colour, 36%);
   }
 }
 // il m'a fallu passer de la valeur HEX à HLS et RGB à HLS
@@ -88,6 +88,32 @@ button {
     align-items: center;
   }
 }
+
+.like {
+  background: none;
+  color: black;
+  font-size: 1.3rem;
+  cursor: cell;
+  // -todo trouver la main pour le pointer
+  &--full {
+    display: none;
+  }
+  &:hover {
+    .like--full {
+      display: unset;
+      color: aqua;
+    }
+    .like--empty {
+      display: none;
+      // je n'ai pas compris pourquoi je devais
+      //retaper .like--empty
+    }
+  }
+}
+
+//- todo trouver un moyen de remplir le coeur avec gradient
+// autre possibilitté pour les coeurs: les superposer et
+//changer leur ordre z-index de superposition lors du survol
 
 .button__return {
   /*les boutons du header de menu

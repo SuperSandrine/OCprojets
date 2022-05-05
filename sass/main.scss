@@ -1,5 +1,6 @@
 @import "./2utils/variables";
 @import "./1base/typography";
+@import "./2utils/mixins";
 @import "./4components/buttons";
 
 /*attention à l'ordre des imports*/
@@ -11,6 +12,7 @@ a:focus,
 a:active {
   text-decoration: none;
   cursor: pointer;
+  color: black;
 }
 
 /* header */
@@ -58,7 +60,8 @@ a:active {
       mais répondait au comportement désiré, possible en js */
     }
     /* la feuille de style de user agent passe avant la mienne?
-    voir typo et gestion des couleur et grasse notamment*/
+    voir typo et gestion des couleur et grasse notamment? input 
+    à une gérance bien à elle des propriétés*/
   }
 }
 
@@ -96,7 +99,67 @@ a:active {
 }
 
 #restaurants {
-  @include flexcolumn;
+  //@include flexcolumn;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
+
   background-color: $colour-achromatic;
-  height: 250px;
 }
+#catalogue {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+#catalogue a {
+  width: 100%;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 4/3;
+  position: relative;
+  border-radius: 15px;
+  box-shadow: 3px 3px 10px rgb(200, 200, 200);
+  &__new {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    background-color: $colour-accent;
+    padding: 7px 10px;
+    border-radius: 3px;
+  }
+  &__image {
+    height: 75%;
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px 15px 0 0;
+      //comment faire pour que la photo ne soit pas centrée
+      //mais alignée en bas et coupée en haut du coup
+    }
+  }
+  &__description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    height: 25%;
+    padding: 0 20px;
+    border-radius: 0 0 15px 15px;
+    &__text {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+footer {
+  background: darken($colour-darkachromatic, 20%);
+  @include flexcolumn;
+  padding: 20px 20px;
+}
+// la suite du footer se trouve dans typogrphy...
