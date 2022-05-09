@@ -1,0 +1,21 @@
+footer {
+  background: darken($colour-darkachromatic, 20%);
+  @include flexcolumn;
+  padding: 20px 20px;
+  h4 {
+    padding: 20px 0;
+  }
+  li {
+    padding-bottom: 10px;
+  }
+  span {
+    padding-left: 7px;
+  }
+  i {
+    padding-right: 7px;
+  }
+  // TODO : une i fait 12px l'autre 19px, il faudrait trouver le moyen
+  // de leur faire obtenir le meme width, pour éviter de bidouiller
+  // l'alignement entre les paddings droits et gauches
+}
+// la suite du footer se trouve dans typogrphy...

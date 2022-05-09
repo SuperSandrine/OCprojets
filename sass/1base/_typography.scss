@@ -1,3 +1,17 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+a,
+a:link,
+a:visited,
+a:focus,
+a:active {
+  text-decoration: none;
+  cursor: pointer;
+  color: unset;
+}
+
 p {
   font-family: "Roboto", sans-serif;
   font-size: 1.2rem;
@@ -19,7 +33,6 @@ h1 {
 }
 
 h2 {
-  font-family: "Roboto", sans-serif;
   font-weight: 600;
   font-size: 1.4rem;
   padding: 10px 0 20px 0;
@@ -52,29 +65,17 @@ p {
 }
 
 /***footer***/
+
 footer {
+  color: $colour-achromatic;
   h4 {
     font-family: "Shrikhand";
-    color: $colour-achromatic;
-    font-size: 1.3rem;
-    padding: 20px 0;
+    font-size: 1.2rem;
   }
-  li {
+  li a {
     font-family: "Roboto", sans-serif;
     font-size: 0.95rem;
     font-weight: 400;
-    list-style: none;
-    color: $colour-achromatic;
-    padding-bottom: 10px;
-    i {
-      padding-right: 7px;
-    }
-    // une i fait 12px l'autre 19px, il faudrait trouver le moyen
-    // de leur faire obtenir le meme width, pour éviter de bidouiller
-    // l'alignement entre les padding droit et gauches
-    span {
-      padding-left: 7px;
-    }
   }
 }
 
@@ -90,3 +91,36 @@ footer {
     }
   }
 }
+
+.menu {
+  h1 {
+    font-family: "shrikhand";
+    font-size: 1.6rem;
+    padding: 20px 0 0 0;
+  }
+  h2 {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 200;
+    padding: 40px 0 10px;
+  }
+}
+.starters,
+.maincourses,
+.desserts {
+  h3 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0 0 8px 0;
+  }
+  p {
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+  span {
+    font-weight: 800;
+  }
+}
+// même typo que card, todo les réunir?

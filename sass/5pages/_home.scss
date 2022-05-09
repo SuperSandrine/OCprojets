@@ -1,0 +1,37 @@
+#presentation {
+  @include flexcolumn;
+  background-color: $colour-achromatic;
+  text-align: center;
+  align-items: center;
+  height: 270px;
+  h1 {
+    padding: 0 40px 20px 40px;
+  }
+  p {
+    padding-bottom: 20px;
+  }
+}
+
+#manual {
+  @include flexcolumn;
+  height: 400px;
+  .manuallist {
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+  }
+}
+
+#restaurants {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
+  background-color: $colour-achromatic;
+}
+#catalogue {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}

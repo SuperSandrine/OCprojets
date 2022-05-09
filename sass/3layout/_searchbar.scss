@@ -1,0 +1,28 @@
+.searchbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  background-color: rgba(1, 1, 1, 0.1);
+  /*fond transparent pour récupérer l'ombre, pourquoi pas z-index? 
+    (car j'ai essayé et ça ne marchait pas, (restriction d'utilisaiton
+     avec certaines balises sémantiques?)*/
+  input {
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    text-align: center;
+    background: none;
+    border: none;
+    padding: 0 10px;
+    &:focus-visible {
+      outline: none;
+    }
+    &::placeholder {
+      width: fit-content;
+      /* axe amélioration: fit content partiellement accepté,
+        mais répondait au comportement désiré, possible en js */
+    }
+  }
+}

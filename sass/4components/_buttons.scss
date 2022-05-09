@@ -93,6 +93,8 @@ button {
   background: none;
   color: black;
   font-size: 1.3rem;
+  padding-right: 20px;
+  padding-top: 20px;
   cursor: cell;
   // -todo trouver la main pour le pointer
   &--full {
@@ -101,24 +103,29 @@ button {
   &:hover {
     .like--full {
       display: unset;
-      color: aqua;
+      color: $colour-primary;
     }
     .like--empty {
       display: none;
-      // je n'ai pas compris pourquoi je devais
-      //retaper .like--empty
     }
   }
 }
-
 //- todo trouver un moyen de remplir le coeur avec gradient
 // autre possibilitté pour les coeurs: les superposer et
 //changer leur ordre z-index de superposition lors du survol
 
-.button__return {
+.header__button {
   /*les boutons du header de menu
     pour revenir à accueil*/
+  background: none;
+  color: black;
+  display: unset;
+  position: absolute;
+  top: 30px;
+  left: 10px;
+  padding: 0 20px;
 }
+
 .button__checked {
   /* les boutons pour valider choix,
     apparaissent avec un survol*/

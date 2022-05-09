@@ -1,0 +1,12 @@
+// Le header est différent que les pages menu, alors je le place ici
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 0 15px 0;
+  max-width: 100%;
+  box-shadow: 0px 4px 4px lightgrey;
+  img {
+    height: 30px;
+  }
+}

@@ -1,165 +1,71 @@
 @import "./2utils/variables";
-@import "./1base/typography";
 @import "./2utils/mixins";
+
+@import "./1base/base";
+@import "./1base/typography";
+
+@import "./3layout/card";
+@import "./3layout/searchbar";
+@import "./3layout/header";
+@import "./3layout/footer";
+
 @import "./4components/buttons";
+
+@import "./5pages/home";
 
 /*attention à l'ordre des imports*/
 
-a,
-a:link,
-a:visited,
-a:focus,
-a:active {
-  text-decoration: none;
-  cursor: pointer;
-  color: black;
-}
-
-/* header */
-
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 25px 0 15px 0;
-  max-width: 100%;
-  box-shadow: 0px 4px 4px lightgrey;
-  z-index: 2;
-  img {
-    height: 30px;
-  }
-  button {
-    display: none;
-  }
-}
-
-.searchbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  width: 100%;
-  background-color: rgba(1, 1, 1, 0.1);
-  /*fond transparent pour récupérer l'ombre, pourquoi pas z-index?*/
-  input {
-    height: 100%;
-    width: fit-content;
-    display: flex;
-    text-align: center;
-    background: none;
-    border: none;
-    padding: 0 10px;
-    &:focus-visible {
-      outline: none;
-    }
-    &::placeholder {
-      width: fit-content;
-      /*si, auto,Pourquoi belleville est coupé?, 
-      pourquoi la boite ne s'ajuste pas au texte?*/
-      /* axe amélioration: fit content partiellement accepté,
-      mais répondait au comportement désiré, possible en js */
-    }
-    /* la feuille de style de user agent passe avant la mienne?
-    voir typo et gestion des couleur et grasse notamment? input 
-    à une gérance bien à elle des propriétés*/
-  }
-}
-
-@mixin flexcolumn {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 20px;
-}
-
-#presentation {
-  @include flexcolumn;
-  background-color: $colour-achromatic;
-  text-align: center;
-  align-items: center;
-  height: 270px;
-  h1 {
-    padding: 0 40px 20px 40px;
-  }
-  p {
-    padding-bottom: 20px;
-  }
-}
-
-#manual {
-  @include flexcolumn;
-  height: 400px;
-  .manuallist {
-    height: 270px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-around;
-  }
-}
-
-#restaurants {
-  //@include flexcolumn;
-  display: flex;
-  flex-direction: column;
-  padding: 40px 20px;
-
-  background-color: $colour-achromatic;
-}
-#catalogue {
-  display: flex;
-  flex-direction: column;
-  row-gap: 20px;
-}
-#catalogue a {
-  width: 100%;
-}
-.card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  aspect-ratio: 4/3;
-  position: relative;
-  border-radius: 15px;
-  box-shadow: 3px 3px 10px rgb(200, 200, 200);
-  &__new {
-    position: absolute;
-    right: 10px;
-    top: 15px;
-    background-color: $colour-accent;
-    padding: 7px 10px;
-    border-radius: 3px;
-  }
+.menu {
   &__image {
-    height: 75%;
+    width: 100%;
+    // position: relative;
+    // z-index: 1;
     img {
       object-fit: cover;
       width: 100%;
       height: 100%;
-      border-radius: 15px 15px 0 0;
-      //comment faire pour que la photo ne soit pas centrée
-      //mais alignée en bas et coupée en haut du coup
     }
   }
-  &__description {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    height: 25%;
-    padding: 0 20px;
-    border-radius: 0 0 15px 15px;
-    &__text {
+  &__text {
+    @include flexcolumn;
+    background-color: $colour-achromatic;
+    border-radius: 20px;
+    margin-top: -20px;
+    // TODO gérer les débordements et faire glisser la boite texte
+    //sur la boite image
+    // position: absolute;
+    // z-index: 2;
+    // solution fonctionnelle mais pas satisfaisant car le
+    // footer disparait sous le texte
+    &__heading {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
+    }
+    &__cta {
+      @include flexcolumn;
+      padding: 40px;
+      align-items: center;
     }
   }
 }
 
-footer {
-  background: darken($colour-darkachromatic, 20%);
-  @include flexcolumn;
-  padding: 20px 20px;
+.starters,
+.maincourses,
+.desserts {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  h2 {
+    border-bottom: 5px solid $colour-accent;
+  }
+  article {
+    background-color: white;
+    padding: 20px 15px;
+    border-radius: 20px;
+    box-shadow: 3px 3px 5px rgb(220, 220, 220);
+    p {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 }
-// la suite du footer se trouve dans typogrphy...
