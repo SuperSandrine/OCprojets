@@ -14,13 +14,13 @@
 
 #manual {
   @include flexcolumn;
-  height: 400px;
+  height: 380px;
   .manuallist {
-    height: 270px;
+    height: 240px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 }
 
@@ -29,9 +29,9 @@
   flex-direction: column;
   padding: 40px 20px;
   background-color: $colour-achromatic;
-}
-#catalogue {
-  display: flex;
-  flex-direction: column;
-  row-gap: 20px;
+  #catalogue {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
 }

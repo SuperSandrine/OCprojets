@@ -1,46 +1,85 @@
-.card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.boxC {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
   aspect-ratio: 4/3;
   max-height: 350px;
   position: relative;
-  border-radius: 15px;
-  box-shadow: 3px 3px 10px rgb(200, 200, 200);
-  &:hover {
-    box-shadow: 8px 8px 15px rgb(170, 170, 170);
-  }
-  &__new {
+  .like {
     position: absolute;
-    right: 10px;
-    top: 15px;
-    background-color: $colour-accent;
-    padding: 7px 10px;
-    border-radius: 3px;
+    bottom: 8%;
+    right: 8%;
+    // > comment faire pour que right soit définit
+    //en fonction du bord de la boxC ? j'ai imposé le
+    // le meme dimensionnement à boxC qu'à .card
   }
-  &__image {
-    height: 75%;
-    img {
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-      border-radius: 15px 15px 0 0;
-      //comment faire pour que la photo ne soit pas centrée
-      //mais alignée en bas et coupée en haut du coup
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 4/3;
+    max-height: 350px;
+    position: relative;
+    border-radius: 15px;
+    box-shadow: 3px 3px 10px rgb(200, 200, 200);
+    &:hover {
+      box-shadow: 8px 8px 15px rgb(170, 170, 170);
+    }
+    &__new {
+      position: absolute;
+      right: 10px;
+      top: 15px;
+      background-color: $colour-accent;
+      padding: 7px 10px;
+      border-radius: 3px;
+    }
+    &__image {
+      height: 75%;
+      img {
+        object-fit: cover;
+        object-position: bottom;
+        width: 100%;
+        height: 100%;
+        border-radius: 15px 15px 0 0;
+        // TODO comment faire pour que la photo ne soit pas centrée
+        //mais alignée en bas et coupée en haut du coup
+      }
+    }
+    &__description {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      height: 25%;
+      padding: 0 20px;
+      border-radius: 0 0 15px 15px;
+      &__text {
+        display: flex;
+        flex-direction: column;
+      }
     }
   }
-  &__description {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    height: 25%;
-    padding: 0 20px;
-    border-radius: 0 0 15px 15px;
-    &__text {
-      display: flex;
-      flex-direction: column;
+}
+
+.like {
+  background: none;
+  color: black;
+  font-size: 1.3rem;
+  cursor: cell;
+  // TODO trouver la main pour le pointer
+  &--full {
+    display: none;
+  }
+  &:hover {
+    .like--full {
+      display: unset;
+      color: $colour-primary;
+    }
+    .like--empty {
+      display: none;
     }
   }
 }
