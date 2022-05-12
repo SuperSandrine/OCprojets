@@ -95,6 +95,66 @@ button {
   }
 }
 
+.like {
+  // Au clic, il devra se remplir progressivement. Pour cette première version,
+  // l’effet peut être apparaître au survol sur desktop au lieu du clic.
+  background: none;
+  color: black;
+  font-size: 1.3rem;
+  cursor: cell;
+  padding: 0;
+  i {
+    width: 30px;
+    height: 30px;
+  }
+  // TODO trouver la main pour le pointer
+  &--full {
+    display: none;
+  }
+  &:hover {
+    .like--full {
+      display: unset;
+      background: radial-gradient(
+        at 30% -90%,
+        $colour-secondary 7px,
+        $colour-primary
+      );
+      background-clip: border-box;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      // TODO pourquoi a-t-on l'impression que le coeur est coupé?
+
+      // background-clip: text;
+      // -webkit-background-clip: text;
+      // color: transparent;
+      // background: $colour-primary;
+      // display: unset;
+      // background: linear-gradient(120deg, #379eff 0%, #1e65ff 100%);
+      // background-clip: border-box;
+      // -webkit-background-clip: text;
+      // -webkit-text-fill-color: transparent;
+      // // color: transparent;
+      // // background: -webkit-gradient(
+      // //   linear,
+      // //   left top,
+      // //   left bottom,
+      // //   from(#b30000),
+      // //   to(#5a0000)
+      // // );
+      // // -webkit-background-clip: text;
+      // // -webkit-text-fill-color: transparent;
+      // // background: radial-gradient(
+      // //   at 30% -90%,
+      // //   $colour-secondary 20px,
+      // //   $colour-primary
+      // // );
+    }
+    .like--empty {
+      display: none;
+    }
+  }
+}
+
 // .like {
 //   background: none;
 //   color: black;
@@ -134,5 +194,14 @@ button {
 
 .button__checked {
   /* les boutons pour valider choix,
-    apparaissent avec un survol*/
+    apparaissent avec un survol
+    Le visiteur peut ajouter les plats qu'il souhaite 
+    à sa commande en cliquant dessus. Cela fait 
+    apparaître une petite coche à droite du plat. 
+    Cette coche devra coulisser de la droite vers 
+    la gauche. Pour cette première version, l’effet 
+    peut apparaître au survol sur desktop au lieu du 
+    clic. Si l’intitulé du plat est trop long, il devra 
+    être rogné avec des points de suspension. Un exemple 
+    de l’effet attendu est fourni.*/
 }

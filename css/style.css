@@ -134,10 +134,6 @@ footer li a {
 
 .boxC {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
   aspect-ratio: 4/3;
   max-height: 350px;
   position: relative;
@@ -148,13 +144,7 @@ footer li a {
   right: 8%;
 }
 .boxC .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
   aspect-ratio: 4/3;
-  max-height: 350px;
-  position: relative;
   border-radius: 15px;
   box-shadow: 3px 3px 10px rgb(200, 200, 200);
 }
@@ -172,7 +162,14 @@ footer li a {
 .boxC .card__image {
   height: 75%;
 }
-.boxC .card__image img {
+.boxC .card__image--portrait {
+  object-fit: cover;
+  object-position: 50% 62%;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px 15px 0 0;
+}
+.boxC .card__image--landscape {
   object-fit: cover;
   object-position: bottom;
   width: 100%;
@@ -191,23 +188,6 @@ footer li a {
 .boxC .card__description__text {
   display: flex;
   flex-direction: column;
-}
-
-.like {
-  background: none;
-  color: black;
-  font-size: 1.3rem;
-  cursor: cell;
-}
-.like--full {
-  display: none;
-}
-.like:hover .like--full {
-  display: unset;
-  color: #9256dc;
-}
-.like:hover .like--empty {
-  display: none;
 }
 
 .searchbar {
@@ -351,6 +331,31 @@ button {
   align-items: center;
 }
 
+.like {
+  background: none;
+  color: black;
+  font-size: 1.3rem;
+  cursor: cell;
+  padding: 0;
+}
+.like i {
+  width: 30px;
+  height: 30px;
+}
+.like--full {
+  display: none;
+}
+.like:hover .like--full {
+  display: unset;
+  background: radial-gradient(at 30% -90%, #ff79da 7px, #9256dc);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.like:hover .like--empty {
+  display: none;
+}
+
 .header__button {
   /*les boutons du header de menu
     pour revenir à accueil*/
@@ -365,7 +370,16 @@ button {
 
 .button__checked {
   /* les boutons pour valider choix,
-    apparaissent avec un survol*/
+    apparaissent avec un survol
+    Le visiteur peut ajouter les plats qu'il souhaite 
+    à sa commande en cliquant dessus. Cela fait 
+    apparaître une petite coche à droite du plat. 
+    Cette coche devra coulisser de la droite vers 
+    la gauche. Pour cette première version, l’effet 
+    peut apparaître au survol sur desktop au lieu du 
+    clic. Si l’intitulé du plat est trop long, il devra 
+    être rogné avec des points de suspension. Un exemple 
+    de l’effet attendu est fourni.*/
 }
 
 #presentation {
@@ -414,12 +428,8 @@ button {
 
 /*attention à l'ordre des imports*/
 .menu__image {
-  width: 100%;
-}
-.menu__image img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+  background-image: url("/img/restaurants/jay-wennington-N_Y88TWmGwA-unsplashsmall.jpg");
+  height: 310px;
 }
 .menu__text {
   display: flex;
@@ -427,12 +437,16 @@ button {
   justify-content: center;
   padding: 0 20px;
   background-color: rgb(246, 246, 246);
-  border-radius: 20px;
-  margin-top: -20px;
+  border-radius: 40px;
+  margin-top: -40px;
 }
 .menu__text__heading {
   display: flex;
   justify-content: space-between;
+  padding: 20px 0 0 0;
+}
+.menu__text__heading .like {
+  padding: 20px;
 }
 .menu__text__cta {
   display: flex;
@@ -454,20 +468,57 @@ button {
 .maincourses h2,
 .desserts h2 {
   border-bottom: 5px solid #99e2d0;
+  width: 70px;
 }
-.starters article,
-.maincourses article,
-.desserts article {
+
+.dish {
+  display: flex;
+  align-items: center;
+  height: 80px;
   background-color: white;
-  padding: 20px 15px;
   border-radius: 20px;
   box-shadow: 3px 3px 5px rgb(220, 220, 220);
 }
-.starters article p,
-.maincourses article p,
-.desserts article p {
+.dish__description {
+  padding: 0 20px;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dish__description__details {
   display: flex;
   justify-content: space-between;
+}
+.dish__description__details p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dish__description__details span {
+  padding-left: 20px;
+}
+.dish__selection {
+  display: none;
+}
+.dish:hover {
+  cursor: pointer;
+}
+.dish:hover .dish__selection {
+  display: unset;
+  background-color: #99e2d0;
+  color: white;
+  height: 80px;
+  width: 80px;
+  border-radius: 0 20px 20px 0;
+}
+.dish:hover .dish__selection i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-weight: 600;
+  font-size: 1.5rem;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -17,29 +17,35 @@
 
 .menu {
   &__image {
-    width: 100%;
+    background-image: url("/img/restaurants/jay-wennington-N_Y88TWmGwA-unsplashsmall.jpg");
+    height: 310px;
     // position: relative;
     // z-index: 1;
-    img {
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-    }
+    // img {
+    //   object-fit: cover;
+    //   width: 100%;
+    //   height: 100%;
+    // }
   }
   &__text {
     @include flexcolumn;
     background-color: $colour-achromatic;
-    border-radius: 20px;
-    margin-top: -20px;
-    // TODO gérer les débordements et faire glisser la boite texte
+    border-radius: 40px;
+    margin-top: -40px;
+    // - gérer les débordements et faire glisser la boite texte
     //sur la boite image
     // position: absolute;
     // z-index: 2;
     // solution fonctionnelle mais pas satisfaisant car le
     // footer disparait sous le texte
+    // solution background avec height imposé
     &__heading {
       display: flex;
       justify-content: space-between;
+      padding: 20px 0 0 0;
+      .like {
+        padding: 20px;
+      }
     }
     &__cta {
       @include flexcolumn;
@@ -57,15 +63,82 @@
   row-gap: 20px;
   h2 {
     border-bottom: 5px solid $colour-accent;
+    width: 70px;
   }
-  article {
-    background-color: white;
-    padding: 20px 15px;
-    border-radius: 20px;
-    box-shadow: 3px 3px 5px rgb(220, 220, 220);
-    p {
+}
+// TODO toute la section article à supprimer une fois sample fini
+//   article {
+//     background-color: white;
+//     padding: 20px 15px;
+//     border-radius: 20px;
+//     box-shadow: 3px 3px 5px rgb(220, 220, 220);
+//     p {
+//       display: flex;
+//       justify-content: space-between;
+//     }
+//     div {
+//       display: none;
+//     }
+//     &:hover {
+//       display: flex;
+
+//       div {
+//         display: unset;
+//         background-color: $colour-accent;
+//         color: white;
+//       }
+//     }
+//   }
+// }
+
+.dish {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 3px 3px 5px rgb(220, 220, 220);
+  &__description {
+    padding: 0 20px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    &__details {
       display: flex;
       justify-content: space-between;
+      p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      span {
+        padding-left: 20px;
+      }
+    }
+  }
+  &__selection {
+    display: none;
+  }
+  &:hover {
+    cursor: pointer;
+    // TODO trouver la grosse main
+    // pour garder l'espace entre le prix en span et le reste de  p
+    .dish__selection {
+      display: unset;
+      background-color: $colour-accent;
+      color: white;
+      height: 80px;
+      width: 80px;
+      border-radius: 0 20px 20px 0;
+      i {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        font-weight: 600;
+        font-size: 1.5rem;
+      }
     }
   }
 }
