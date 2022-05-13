@@ -62,3 +62,60 @@
     }
   }
 }
+
+.dish {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 3px 3px 5px rgb(220, 220, 220);
+  &__description {
+    padding: 0 20px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    h3 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    &__details {
+      display: flex;
+      justify-content: space-between;
+      p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      span {
+        text-align: right;
+      }
+    }
+  }
+  &__selection {
+    display: none;
+  }
+  &:hover {
+    cursor: pointer;
+    // TODO trouver la grosse main
+    // pour garder l'espace entre le prix en span et le reste de  p
+    .dish__selection {
+      display: unset;
+      background-color: $colour-accent;
+      color: white;
+      height: 80px;
+      min-width: 80px;
+      border-radius: 0 20px 20px 0;
+      i {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        font-weight: 600;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

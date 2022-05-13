@@ -1,0 +1,69 @@
+.menu {
+  &__image {
+    background: no-repeat center/100%
+      url("/img/restaurants/jay-wennington-N_Y88TWmGwA-unsplashsmall.jpg");
+    height: 250px;
+    // position: relative;
+    // z-index: 1;
+    // img {
+    //   object-fit: cover;
+    //   width: 100%;
+    //   height: 100%;
+    // }
+    &--LNE {
+      // TODO est- ce qu'on peut donner une distance de bottom pour
+      // positionner l'image
+      background: no-repeat center/100%
+        url("/img/restaurants/stil-u2Lp8tXIcjw-unsplashsmallportrait.jpg");
+      height: 250px;
+    }
+    &--ALF {
+      background: no-repeat center/100%
+        url("/img/restaurants/toa-heftiba-DQKerTsQwi0-unsplashsmall.jpg");
+      height: 250px;
+    }
+    &--LDDS {
+      background: no-repeat center/100%
+        url("/img/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplashsmall.jpg");
+      height: 250px;
+    }
+  }
+  &__text {
+    @include flexcolumn;
+    background-color: $colour-achromatic;
+    border-radius: 40px;
+    margin-top: -40px;
+    // - gérer les débordements et faire glisser la boite texte
+    //sur la boite image > réussi en utilisant un background dans la boite image
+    // position: absolute;
+    // z-index: 2;
+    // solution fonctionnelle mais pas satisfaisant car le
+    // footer disparait sous le texte
+    // solution background avec height imposé
+    &__heading {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 0 0 0;
+      .like {
+        padding: 20px 20px 0 20px;
+      }
+    }
+    &__cta {
+      @include flexcolumn;
+      padding: 40px;
+      align-items: center;
+    }
+  }
+}
+
+.starters,
+.maincourses,
+.desserts {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  h2 {
+    border-bottom: 5px solid $colour-accent;
+    width: 70px;
+  }
+}

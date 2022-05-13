@@ -1,4 +1,5 @@
-// Le header est différent que les pages menu, alors je le place ici
+// Le header est le même entre index et menu
+// sur les menus: il y a un bouton qui est en position absolute
 .header {
   display: flex;
   justify-content: center;

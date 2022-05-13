@@ -190,6 +190,61 @@ footer li a {
   flex-direction: column;
 }
 
+.dish {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 3px 3px 5px rgb(220, 220, 220);
+}
+.dish__description {
+  padding: 0 20px;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dish__description h3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dish__description__details {
+  display: flex;
+  justify-content: space-between;
+}
+.dish__description__details p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dish__description__details span {
+  text-align: right;
+}
+.dish__selection {
+  display: none;
+}
+.dish:hover {
+  cursor: pointer;
+}
+.dish:hover .dish__selection {
+  display: unset;
+  background-color: #99e2d0;
+  color: white;
+  height: 80px;
+  min-width: 80px;
+  border-radius: 0 20px 20px 0;
+}
+.dish:hover .dish__selection i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
 .searchbar {
   display: flex;
   justify-content: center;
@@ -305,25 +360,24 @@ button {
   justify-content: flex-start;
   align-items: center;
   position: relative;
-  background-color: #f7f7f7;
   width: 100%;
   height: 65px;
   font-weight: 500;
   border-radius: 15px;
-  padding: 0 20px;
   box-shadow: 3px 3px 10px rgb(220, 220, 220);
+  background-color: #f7f7f7;
   /* - une fonction pour définir la couleur de i par rapport au fond
   - utilisation cette fonction avec des teintes de couleur primaire en survol*/
+}
+.box__button i {
+  padding: 0 25px;
+  color: rgb(130, 130, 130);
 }
 .box__button:hover {
   background-color: #f4eefc;
 }
 .box__button:hover i {
   color: #9256dc;
-}
-.box__button i {
-  padding: 0 25px;
-  color: rgb(130, 130, 130);
 }
 .box__button span {
   display: flex;
@@ -336,17 +390,20 @@ button {
   color: black;
   font-size: 1.3rem;
   cursor: cell;
-  padding: 0;
 }
-.like i {
+.like--empty {
   width: 30px;
   height: 30px;
+  padding: 5px;
 }
 .like--full {
   display: none;
 }
 .like:hover .like--full {
   display: unset;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
   background: radial-gradient(at 30% -90%, #ff79da 7px, #9256dc);
   background-clip: border-box;
   -webkit-background-clip: text;
@@ -426,10 +483,21 @@ button {
   row-gap: 20px;
 }
 
-/*attention à l'ordre des imports*/
 .menu__image {
-  background-image: url("/img/restaurants/jay-wennington-N_Y88TWmGwA-unsplashsmall.jpg");
-  height: 310px;
+  background: no-repeat center/100% url("/img/restaurants/jay-wennington-N_Y88TWmGwA-unsplashsmall.jpg");
+  height: 250px;
+}
+.menu__image--LNE {
+  background: no-repeat center/100% url("/img/restaurants/stil-u2Lp8tXIcjw-unsplashsmallportrait.jpg");
+  height: 250px;
+}
+.menu__image--ALF {
+  background: no-repeat center/100% url("/img/restaurants/toa-heftiba-DQKerTsQwi0-unsplashsmall.jpg");
+  height: 250px;
+}
+.menu__image--LDDS {
+  background: no-repeat center/100% url("/img/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplashsmall.jpg");
+  height: 250px;
 }
 .menu__text {
   display: flex;
@@ -446,7 +514,7 @@ button {
   padding: 20px 0 0 0;
 }
 .menu__text__heading .like {
-  padding: 20px;
+  padding: 20px 20px 0 20px;
 }
 .menu__text__cta {
   display: flex;
@@ -471,54 +539,6 @@ button {
   width: 70px;
 }
 
-.dish {
-  display: flex;
-  align-items: center;
-  height: 80px;
-  background-color: white;
-  border-radius: 20px;
-  box-shadow: 3px 3px 5px rgb(220, 220, 220);
-}
-.dish__description {
-  padding: 0 20px;
-  width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.dish__description__details {
-  display: flex;
-  justify-content: space-between;
-}
-.dish__description__details p {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.dish__description__details span {
-  padding-left: 20px;
-}
-.dish__selection {
-  display: none;
-}
-.dish:hover {
-  cursor: pointer;
-}
-.dish:hover .dish__selection {
-  display: unset;
-  background-color: #99e2d0;
-  color: white;
-  height: 80px;
-  width: 80px;
-  border-radius: 0 20px 20px 0;
-}
-.dish:hover .dish__selection i {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  font-weight: 600;
-  font-size: 1.5rem;
-}
+/*attention à l'ordre des imports*/
 
 /*# sourceMappingURL=style.css.map */

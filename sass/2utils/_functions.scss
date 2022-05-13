@@ -1,0 +1,9 @@
+@function backeti($colour) {
+  @if (lightness($colour) < 55%) {
+    @return lighten($colour, 46%);
+  } @else {
+    @return lighten($colour, 36%);
+  }
+}
+// il m'a fallu passer de la valeur HEX à HLS et RGB à HLS
+// et trouver le point de rupture entre les deux couleurs
