@@ -1,7 +1,7 @@
 .menu {
   &__image {
     background: no-repeat center/100%
-      url("/img/restaurants/jay-wennington-N_Y88TWmGwA-unsplashsmall.jpg");
+      url("../img/restaurants/jay-wennington-N_Y88TWmGwA-unsplashsmall.jpg");
     height: 250px;
     // position: relative;
     // z-index: 1;
@@ -14,17 +14,17 @@
       // TODO est- ce qu'on peut donner une distance de bottom pour
       // positionner l'image
       background: no-repeat center/100%
-        url("/img/restaurants/stil-u2Lp8tXIcjw-unsplashsmallportrait.jpg");
+        url("../img/restaurants/stil-u2Lp8tXIcjw-unsplashsmallportrait.jpg");
       height: 250px;
     }
     &--ALF {
       background: no-repeat center/100%
-        url("/img/restaurants/toa-heftiba-DQKerTsQwi0-unsplashsmall.jpg");
+        url("../img/restaurants/toa-heftiba-DQKerTsQwi0-unsplashsmall.jpg");
       height: 250px;
     }
     &--LDDS {
       background: no-repeat center/100%
-        url("/img/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplashsmall.jpg");
+        url("../img/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplashsmall.jpg");
       height: 250px;
     }
   }
@@ -43,9 +43,10 @@
     &__heading {
       display: flex;
       justify-content: space-between;
-      padding: 20px 0 0 0;
+      padding: 40px 20px 0 0;
       .like {
-        padding: 20px 20px 0 20px;
+        display: flex;
+        align-items: flex-end;
       }
     }
     &__cta {

@@ -79,11 +79,15 @@ footer {
 footer h4 {
   font-family: "Shrikhand";
   font-size: 1.2rem;
+  letter-spacing: 1px;
 }
 footer li a {
   font-family: "Roboto", sans-serif;
   font-size: 0.95rem;
   font-weight: 400;
+}
+footer li a .fas fa-hands-helping {
+  font-size: 12px;
 }
 
 .searchbar {
@@ -101,8 +105,8 @@ footer li a {
 
 .menu h1 {
   font-family: "shrikhand";
+  letter-spacing: 1px;
   font-size: 1.6rem;
-  padding: 20px 0 0 0;
 }
 .menu h2 {
   text-transform: uppercase;
@@ -123,7 +127,7 @@ footer li a {
 .maincourses p,
 .desserts p {
   font-family: "Roboto", sans-serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 300;
 }
 .starters span,
@@ -181,13 +185,15 @@ footer li a {
   justify-content: space-between;
   align-items: center;
   background-color: white;
-  height: 25%;
-  padding: 0 20px;
+  padding: 20px;
   border-radius: 0 0 15px 15px;
 }
 .boxC .card__description__text {
   display: flex;
   flex-direction: column;
+}
+.boxC .card__description__text p {
+  padding-right: 50px;
 }
 
 .dish {
@@ -197,6 +203,7 @@ footer li a {
   background-color: white;
   border-radius: 20px;
   box-shadow: 3px 3px 5px rgb(220, 220, 220);
+  padding: 20px 0;
 }
 .dish__description {
   padding: 0 20px;
@@ -209,6 +216,7 @@ footer li a {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  padding-right: 40px;
 }
 .dish__description__details {
   display: flex;
@@ -218,31 +226,65 @@ footer li a {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  padding-right: 10px;
 }
 .dish__description__details span {
   text-align: right;
 }
 .dish__selection {
-  display: none;
-}
-.dish:hover {
-  cursor: pointer;
-}
-.dish:hover .dish__selection {
-  display: unset;
   background-color: #99e2d0;
   color: white;
   height: 80px;
-  min-width: 80px;
+  min-width: 0px;
+  max-width: 0px;
   border-radius: 0 20px 20px 0;
+  overflow: hidden;
+  transition: min-width 600ms;
 }
-.dish:hover .dish__selection i {
+.dish__selection i {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   font-weight: 600;
   font-size: 1.5rem;
+  transform: rotate(-240deg);
+  transition: transform 500ms 100ms ease-in-out;
+}
+.dish:hover {
+  cursor: pointer;
+}
+.dish:hover .dish__selection {
+  min-width: 80px;
+}
+.dish:hover .dish__selection i {
+  font-size: 1.5rem;
+  transform: rotate(0deg);
+}
+
+@keyframes section-menu {
+  0% {
+    transform: translateY(1300%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+section {
+  width: 100%;
+  height: 100%;
+}
+section article {
+  animation: section-menu 3000ms backwards cubic-bezier(0.88, 0.47, 0.12, 1.09);
+}
+section article--1 {
+  animation-delay: 600ms;
+}
+section article--2 {
+  animation-delay: 1200ms;
+}
+section article--3 {
+  animation-delay: 1800ms;
 }
 
 .searchbar {
@@ -327,10 +369,9 @@ button {
   border-radius: 25px;
   padding: 0 20px;
   box-shadow: 3px 3px 10px rgb(200, 200, 200);
-  transition: transform 400ms, background 1s, box-shadow 400ms;
+  transition: background 1s, box-shadow 400ms;
 }
 .button__cta:hover {
-  transform: scale(1.1);
   background: radial-gradient(at 30% -90%, #fface8 20px, #ad80e5);
   box-shadow: 8px 8px 15px rgb(170, 170, 170);
 }
@@ -386,31 +427,24 @@ button {
 }
 
 .like {
-  background: none;
-  color: black;
-  font-size: 1.3rem;
-  cursor: cell;
-}
-.like--empty {
-  width: 30px;
-  height: 30px;
-  padding: 5px;
-}
-.like--full {
-  display: none;
-}
-.like:hover .like--full {
-  display: unset;
-  width: 30px;
-  height: 30px;
-  padding: 5px;
-  background: radial-gradient(at 30% -90%, #ff79da 7px, #9256dc);
+  padding: 2px 1px 0 1px;
+  background: linear-gradient(to bottom, transparent 50%, #ff79da 7px, #9256dc);
+  color: transparent;
   background-clip: border-box;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-size: 1.3rem;
+  cursor: cell;
+  -webkit-text-stroke: 2px black;
+  transition: all ease-in 400ms;
+  background-size: 1% 200%;
 }
-.like:hover .like--empty {
+.like--empty {
   display: none;
+}
+.like:hover {
+  background-position: 0 -100%;
+  -webkit-text-stroke: unset;
 }
 
 .header__button {
@@ -484,19 +518,19 @@ button {
 }
 
 .menu__image {
-  background: no-repeat center/100% url("/img/restaurants/jay-wennington-N_Y88TWmGwA-unsplashsmall.jpg");
+  background: no-repeat center/100% url("../img/restaurants/jay-wennington-N_Y88TWmGwA-unsplashsmall.jpg");
   height: 250px;
 }
 .menu__image--LNE {
-  background: no-repeat center/100% url("/img/restaurants/stil-u2Lp8tXIcjw-unsplashsmallportrait.jpg");
+  background: no-repeat center/100% url("../img/restaurants/stil-u2Lp8tXIcjw-unsplashsmallportrait.jpg");
   height: 250px;
 }
 .menu__image--ALF {
-  background: no-repeat center/100% url("/img/restaurants/toa-heftiba-DQKerTsQwi0-unsplashsmall.jpg");
+  background: no-repeat center/100% url("../img/restaurants/toa-heftiba-DQKerTsQwi0-unsplashsmall.jpg");
   height: 250px;
 }
 .menu__image--LDDS {
-  background: no-repeat center/100% url("/img/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplashsmall.jpg");
+  background: no-repeat center/100% url("../img/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplashsmall.jpg");
   height: 250px;
 }
 .menu__text {
@@ -511,10 +545,11 @@ button {
 .menu__text__heading {
   display: flex;
   justify-content: space-between;
-  padding: 20px 0 0 0;
+  padding: 40px 20px 0 0;
 }
 .menu__text__heading .like {
-  padding: 20px 20px 0 20px;
+  display: flex;
+  align-items: flex-end;
 }
 .menu__text__cta {
   display: flex;

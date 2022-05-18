@@ -22,9 +22,8 @@ button {
   border-radius: 25px;
   padding: 0 20px;
   box-shadow: 3px 3px 10px rgb(200, 200, 200);
-  transition: transform 400ms, background 1s, box-shadow 400ms;
+  transition: background 1s, box-shadow 400ms;
   &:hover {
-    transform: scale(1.1);
     background: radial-gradient(
       at 30% -90%,
       lighten($colour-secondary, 10%) 20px,
@@ -86,92 +85,70 @@ button {
 }
 
 .like {
-  // Au clic, il devra se remplir progressivement. Pour cette première version,
-  // l’effet peut être apparaître au survol sur desktop au lieu du clic.
-  background: none;
-  color: black;
-  font-size: 1.3rem;
-  cursor: cell;
   &--empty {
-    width: 30px;
-    height: 30px;
-    padding: 5px;
-  }
-  // TODO trouver la main pour le pointer
-  &--full {
     display: none;
   }
+  padding: 2px 1px 0 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    $colour-secondary 7px,
+    $colour-primary
+  );
+  color: transparent;
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.3rem;
+  cursor: cell;
+  -webkit-text-stroke: 2px black; //dessine une ligne autour d'un text
+  transition: all ease-in 400ms;
+  background-size: 1% 200%;
   &:hover {
-    .like--full {
-      display: unset;
-      width: 30px;
-      height: 30px;
-      padding: 5px;
-      background: radial-gradient(
-        at 30% -90%,
-        $colour-secondary 7px,
-        $colour-primary
-      );
-      background-clip: border-box;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      // TODO pourquoi a-t-on l'impression que le coeur est coupé?
-
-      // background-clip: text;
-      // -webkit-background-clip: text;
-      // color: transparent;
-      // background: $colour-primary;
-      // display: unset;
-      // background: linear-gradient(120deg, #379eff 0%, #1e65ff 100%);
-      // background-clip: border-box;
-      // -webkit-background-clip: text;
-      // -webkit-text-fill-color: transparent;
-      // // color: transparent;
-      // // background: -webkit-gradient(
-      // //   linear,
-      // //   left top,
-      // //   left bottom,
-      // //   from(#b30000),
-      // //   to(#5a0000)
-      // // );
-      // // -webkit-background-clip: text;
-      // // -webkit-text-fill-color: transparent;
-      // // background: radial-gradient(
-      // //   at 30% -90%,
-      // //   $colour-secondary 20px,
-      // //   $colour-primary
-      // // );
-    }
-    .like--empty {
-      display: none;
-    }
+    background-position: 0 -100%;
+    -webkit-text-stroke: unset;
   }
 }
 
+// // ce qui suit fonctionne, mais transition pas trouvée
 // .like {
+//   // Au clic, il devra se remplir progressivement. Pour cette première version,
+//   // l’effet peut être apparaître au survol sur desktop au lieu du clic.
 //   background: none;
 //   color: black;
 //   font-size: 1.3rem;
-//   padding-right: 20px;
-//   padding-top: 20px;
 //   cursor: cell;
-//   // -todo trouver la main pour le pointer
+//   padding: 0;
+//   &--empty {
+//     padding: 0px 0 0 0;
+//   }
+//   // TODO trouver la grosse main pour le pointer
 //   &--full {
 //     display: none;
 //   }
+//   // ça ne marche pas...
+//   // transition: all 1000ms ease;
+//   // -webkit-transition: all 1500ms ease;
 //   &:hover {
 //     .like--full {
 //       display: unset;
-//       color: $colour-primary;
+//       padding: 2px 1px 0 1px;
+//       background: radial-gradient(
+//         at 30% -90%,
+//         $colour-secondary 7px,
+//         $colour-primary
+//       );
+//       background-clip: border-box;
+//       -webkit-background-clip: text;
+//       -webkit-text-fill-color: transparent;
+//       // - pourquoi a-t-on l'impression que le coeur est coupé = j'ai
+//       // rajouté un petit padding de 5px sur le full
 //     }
 //     .like--empty {
 //       display: none;
 //     }
 //   }
 // }
-//- todo trouver un moyen de remplir le coeur avec gradient
-// autre possibilitté pour les coeurs: les superposer et
-//changer leur ordre z-index de superposition lors du survol
 
 .header__button {
   /*les boutons du header de menu
