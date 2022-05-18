@@ -356,29 +356,36 @@
   }
 }
 
-$num-section: 3;
-$anim-dur: 3000ms;
-$anim-delay: 1000ms;
+$num-section: 9;
+$anim-dur: 1000ms;
+$anim-delay: calc($anim-dur / $num-section);
 
 @keyframes section-menu {
   0% {
-    transform: translateY(1300%);
+    transform: translateY(50%); //pour que le dish arrive, mettre 1300%
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.3; //crée un décallage entre la position et la transparence
+    //TODO est-ce synchronisé ou pas??
   }
   100% {
     transform: translateY(0%);
+    opacity: 1;
   }
 }
 section {
   width: 100%;
   height: 100%;
-  article {
-    animation: section-menu $anim-dur backwards
+  .dish {
+    animation: section-menu $anim-dur forwards
       cubic-bezier(0.88, 0.47, 0.12, 1.09);
 
-    @for $i from 1 through 3 {
+    @for $i from 1 through $num-section {
       &--#{$i} {
-        animation-delay: 600ms * $i;
-        //l'animation delay ne fonctionne pas comme mon test sur code pend,
+        animation-delay: (($anim-delay * $i) + 100ms);
+        //l'animation delay ne fonctionne pas comme mon test sur codepen =
+        //problème écriture résolu lié au boucle et sass
         //TODO vérifier exception dans cours de animation delay
       }
     }

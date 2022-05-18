@@ -264,27 +264,50 @@ footer li a .fas fa-hands-helping {
 
 @keyframes section-menu {
   0% {
-    transform: translateY(1300%);
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.3;
   }
   100% {
     transform: translateY(0%);
+    opacity: 1;
   }
 }
 section {
   width: 100%;
   height: 100%;
 }
-section article {
-  animation: section-menu 3000ms backwards cubic-bezier(0.88, 0.47, 0.12, 1.09);
+section .dish {
+  animation: section-menu 1000ms forwards cubic-bezier(0.88, 0.47, 0.12, 1.09);
 }
-section article--1 {
-  animation-delay: 600ms;
+section .dish--1 {
+  animation-delay: 211.1111111111ms;
 }
-section article--2 {
-  animation-delay: 1200ms;
+section .dish--2 {
+  animation-delay: 322.2222222222ms;
 }
-section article--3 {
-  animation-delay: 1800ms;
+section .dish--3 {
+  animation-delay: 433.3333333333ms;
+}
+section .dish--4 {
+  animation-delay: 544.4444444444ms;
+}
+section .dish--5 {
+  animation-delay: 655.5555555556ms;
+}
+section .dish--6 {
+  animation-delay: 766.6666666667ms;
+}
+section .dish--7 {
+  animation-delay: 877.7777777778ms;
+}
+section .dish--8 {
+  animation-delay: 988.8888888889ms;
+}
+section .dish--9 {
+  animation-delay: 1100ms;
 }
 
 .searchbar {
