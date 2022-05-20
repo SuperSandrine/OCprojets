@@ -36,6 +36,7 @@ button {
 .box {
   width: 97%;
   position: relative;
+  margin-bottom: 20px;
   &__label {
     position: absolute;
     z-index: 2;
@@ -88,7 +89,7 @@ button {
   &--empty {
     display: none;
   }
-  padding: 2px 1px 0 1px;
+  padding: 3px 2px 0 2px;
   background: linear-gradient(
     to bottom,
     transparent 50%,
@@ -106,7 +107,7 @@ button {
   background-size: 1% 200%;
   &:hover {
     background-position: 0 -100%;
-    -webkit-text-stroke: unset;
+    -webkit-text-stroke: 2px transparent;
   }
 }
 

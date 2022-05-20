@@ -292,13 +292,12 @@
 .dish {
   display: flex;
   align-items: center;
-  height: 80px;
   background-color: white;
   border-radius: 20px;
+  height: 80px;
   box-shadow: 3px 3px 5px rgb(220, 220, 220);
-  padding: 20px 0;
   &__description {
-    padding: 0 20px;
+    padding: 20px 20px;
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -356,7 +355,7 @@
   }
 }
 
-$num-section: 9;
+$num-section: 10;
 $anim-dur: 1000ms;
 $anim-delay: calc($anim-dur / $num-section);
 
@@ -378,12 +377,14 @@ section {
   width: 100%;
   height: 100%;
   .dish {
+    transform: translateY(50%);
+    opacity: 0;
     animation: section-menu $anim-dur forwards
       cubic-bezier(0.88, 0.47, 0.12, 1.09);
 
     @for $i from 1 through $num-section {
       &--#{$i} {
-        animation-delay: (($anim-delay * $i) + 100ms);
+        animation-delay: (($anim-delay * $i) + 1000ms);
         //l'animation delay ne fonctionne pas comme mon test sur codepen =
         //problème écriture résolu lié au boucle et sass
         //TODO vérifier exception dans cours de animation delay

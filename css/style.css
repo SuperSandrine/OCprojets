@@ -199,14 +199,13 @@ footer li a .fas fa-hands-helping {
 .dish {
   display: flex;
   align-items: center;
-  height: 80px;
   background-color: white;
   border-radius: 20px;
+  height: 80px;
   box-shadow: 3px 3px 5px rgb(220, 220, 220);
-  padding: 20px 0;
 }
 .dish__description {
-  padding: 0 20px;
+  padding: 20px 20px;
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -280,34 +279,39 @@ section {
   height: 100%;
 }
 section .dish {
+  transform: translateY(50%);
+  opacity: 0;
   animation: section-menu 1000ms forwards cubic-bezier(0.88, 0.47, 0.12, 1.09);
 }
 section .dish--1 {
-  animation-delay: 211.1111111111ms;
+  animation-delay: 1100ms;
 }
 section .dish--2 {
-  animation-delay: 322.2222222222ms;
+  animation-delay: 1200ms;
 }
 section .dish--3 {
-  animation-delay: 433.3333333333ms;
+  animation-delay: 1300ms;
 }
 section .dish--4 {
-  animation-delay: 544.4444444444ms;
+  animation-delay: 1400ms;
 }
 section .dish--5 {
-  animation-delay: 655.5555555556ms;
+  animation-delay: 1500ms;
 }
 section .dish--6 {
-  animation-delay: 766.6666666667ms;
+  animation-delay: 1600ms;
 }
 section .dish--7 {
-  animation-delay: 877.7777777778ms;
+  animation-delay: 1700ms;
 }
 section .dish--8 {
-  animation-delay: 988.8888888889ms;
+  animation-delay: 1800ms;
 }
 section .dish--9 {
-  animation-delay: 1100ms;
+  animation-delay: 1900ms;
+}
+section .dish--10 {
+  animation-delay: 2000ms;
 }
 
 .searchbar {
@@ -356,7 +360,6 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 20px;
   padding: 20px 20px;
 }
 footer h4 {
@@ -402,6 +405,7 @@ button {
 .box {
   width: 97%;
   position: relative;
+  margin-bottom: 20px;
 }
 .box__label {
   position: absolute;
@@ -450,7 +454,7 @@ button {
 }
 
 .like {
-  padding: 2px 1px 0 1px;
+  padding: 3px 2px 0 2px;
   background: linear-gradient(to bottom, transparent 50%, #ff79da 7px, #9256dc);
   color: transparent;
   background-clip: border-box;
@@ -467,7 +471,7 @@ button {
 }
 .like:hover {
   background-position: 0 -100%;
-  -webkit-text-stroke: unset;
+  -webkit-text-stroke: 2px transparent;
 }
 
 .header__button {
@@ -500,11 +504,10 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 20px;
   background-color: rgb(246, 246, 246);
   text-align: center;
   align-items: center;
-  height: 270px;
+  padding: 40px 20px;
 }
 #presentation h1 {
   padding: 0 40px 20px 40px;
@@ -517,21 +520,18 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 20px;
-  height: 380px;
+  padding: 40px 20px;
 }
 #manual .manuallist {
-  height: 240px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: space-between;
 }
 
 #restaurants {
   display: flex;
   flex-direction: column;
-  padding: 40px 20px;
+  padding: 40px 20px 60px 20px;
   background-color: rgb(246, 246, 246);
 }
 #restaurants #catalogue {
@@ -540,6 +540,104 @@ button {
   row-gap: 20px;
 }
 
+.spinner {
+  width: 100%;
+  height: 150%;
+  background: radial-gradient(at 30% -90%, #ff79da 20px, #9256dc);
+  z-index: 99;
+  opacity: 1;
+  position: absolute;
+  border-radius: 0 0 25px 25px;
+  transform-origin: top;
+  animation: disparition 1.2s ease-out 2.2s normal both;
+  padding: 40px 20px;
+}
+.spinner__container {
+  height: 30%;
+  border-radius: 15px;
+  transform: translateY(0%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: position 3s cubic-bezier(0.32, -0.31, 0.19, 1.35) 1s normal both;
+}
+.spinner__container__circle {
+  position: relative;
+  height: 100%;
+  aspect-ratio: 1/1;
+}
+.spinner__container__circle span {
+  aspect-ratio: 1/1;
+  height: 70%;
+  position: absolute;
+  margin: auto;
+  top: 0px;
+  left: 40px;
+  transform: rotate(calc(15deg * var(--i)));
+  /*placement des bulles, mettre autant de bulles que de span (comment fonctionne var(--i)?*/
+}
+.spinner__container__circle span::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  background: #99e2d0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: run 0.5s linear infinite;
+  animation-delay: calc(0.0416666667s * var(--i));
+}
+
+@keyframes position {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+@keyframes disparition {
+  0% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  20% {
+    transform: translateY(0%);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-100%);
+    opacity: 0.3;
+  }
+  70% {
+    opacity: 0.15;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-200%);
+    opacity: 0;
+  }
+}
+@keyframes run {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 0px white;
+  }
+  30% {
+    opacity: 0.3;
+    box-shadow: 0 0 20px white;
+  }
+  80%, 100% {
+    transform: scale(0);
+    opacity: 0.3;
+    box-shadow: 0 0 100px white;
+  }
+}
 .menu__image {
   background: no-repeat center/100% url("../img/restaurants/jay-wennington-N_Y88TWmGwA-unsplashsmall.jpg");
   height: 250px;
@@ -560,7 +658,6 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 20px;
   background-color: rgb(246, 246, 246);
   border-radius: 40px;
   margin-top: -40px;
@@ -578,7 +675,6 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 20px;
   padding: 40px;
   align-items: center;
 }
