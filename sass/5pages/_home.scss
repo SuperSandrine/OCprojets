@@ -2,8 +2,6 @@
   @include flexcolumn;
   background-color: $colour-achromatic;
   text-align: center;
-  align-items: center;
-  padding: 40px 20px;
   h1 {
     padding: 0 40px 20px 40px;
   }
@@ -14,7 +12,6 @@
 
 #manual {
   @include flexcolumn;
-  padding: 40px 20px;
   .manuallist {
     display: flex;
     flex-direction: column;
@@ -37,23 +34,21 @@
 .spinner {
   width: 100%;
   height: 150%;
-  background: radial-gradient(at 30% -90%, #ff79da 20px, #9256dc);
+  @include background-radgrad;
   z-index: 99;
   opacity: 1;
   position: absolute;
   border-radius: 0 0 25px 25px;
   transform-origin: top;
   animation: disparition 1.2s ease-out 2.2s normal both;
-  padding: 40px 20px;
   &__container {
     height: 30%;
-    border-radius: 15px;
     transform: translateY(0%);
     display: flex;
     justify-content: center;
     align-items: center;
     animation: position 3s cubic-bezier(0.32, -0.31, 0.19, 1.35) 1s normal both;
-    //container permet au cercle de glisser vers le haut
+    //container permet au cercle de glisser vers le haut (fond transparent pour lui)
     &__circle {
       position: relative;
       // background-color: brown;
@@ -69,7 +64,7 @@
         left: 40px;
         transform: rotate(
           calc(360deg / 24 * var(--i))
-        ); /*placement des bulles, mettre autant de bulles que de span (comment fonctionne var(--i)?*/
+        ); /*placement des bulles, mettre autant de bulles que de span (TODO comment fonctionne var(--i)?*/
         &::before {
           content: "";
           position: absolute;
@@ -116,9 +111,8 @@
     opacity: 0.15;
   }
   80% {
-    opacity: 0;
+    opacity: 0.15;
   }
-
   100% {
     transform: translateY(-200%);
     opacity: 0;

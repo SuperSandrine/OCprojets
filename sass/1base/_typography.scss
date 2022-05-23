@@ -1,4 +1,5 @@
-* {
+*,
+footer {
   font-family: "Roboto", sans-serif;
 }
 
@@ -12,71 +13,59 @@ a:active {
   color: unset;
 }
 
-p {
-  font-family: "Roboto", sans-serif;
-  font-size: 1.2rem;
-  font-weight: 200;
-}
-button {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 1rem;
-  i {
-    font-size: 1.3rem;
-  }
-}
-
 h1 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 600;
+  @include font-600;
   font-size: 1.6rem;
 }
 
 h2 {
-  font-weight: 600;
+  @include font-600;
   font-size: 1.4rem;
   padding: 10px 0 20px 0;
 }
 
 p {
-  font-family: "Roboto", sans-serif;
-  font-size: 1.2rem;
-  font-weight: 200;
+  @include font-200;
 }
 
-.card {
+button {
+  @include font-400;
+  i {
+    font-size: 1.3rem;
+  }
+}
+
+.card,
+.starters,
+.maincourses,
+.desserts {
   h3 {
-    font-family: "Roboto", sans-serif;
-    font-weight: 600;
+    @include font-600;
     font-size: 1.1rem;
     padding: 0 0 8px 0;
   }
   p {
-    font-family: "Roboto", sans-serif;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 300;
   }
   &__new {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
+    @include font-400;
     color: darken($colour-accent, 40%);
+  }
+  span {
+    font-weight: 800;
   }
 }
 
 /***footer***/
-
 footer {
   color: $colour-achromatic;
   h4 {
-    font-family: "Shrikhand";
+    @include font-family-Shr;
     font-size: 1.2rem;
-    letter-spacing: 1px;
   }
   li a {
-    font-family: "Roboto", sans-serif;
-    font-size: 0.95rem;
-    font-weight: 400;
+    @include font-400;
     .fas fa-hands-helping {
       font-size: 12px;
     }
@@ -85,10 +74,9 @@ footer {
 
 .searchbar {
   color: rgb(74, 74, 74);
-  font-family: "Roboto", sans-serif;
   input {
     font-size: 0.95rem;
-    font-weight: 600;
+    @include font-600;
     color: rgb(74, 74, 74);
     &:focus {
       color: $colour-primary;
@@ -98,33 +86,12 @@ footer {
 
 .menu {
   h1 {
-    font-family: "shrikhand";
-    letter-spacing: 1px;
+    @include font-family-Shr;
     font-size: 1.6rem;
   }
   h2 {
     text-transform: uppercase;
-    font-size: 1.2rem;
-    font-weight: 200;
+    @include font-200;
     padding: 40px 0 10px;
   }
 }
-.starters,
-.maincourses,
-.desserts {
-  h3 {
-    font-family: "Roboto", sans-serif;
-    font-weight: 600;
-    font-size: 1.1rem;
-    padding: 0 0 8px 0;
-  }
-  p {
-    font-family: "Roboto", sans-serif;
-    font-size: 0.9rem;
-    font-weight: 300;
-  }
-  span {
-    font-weight: 800;
-  }
-}
-// même typo que card, TODO les réunir?

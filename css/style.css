@@ -1,13 +1,21 @@
 @charset "UTF-8";
+/*  - une fonction pour définir la couleur de i par rapport au 
+fond sur la section fonctionnement de la page d'accueil 
+    - utilisation de cette fonction avec les teintes de couleur des 
+variables qui change en survol.
+    - il m'a fallu passer de la valeur HEX à HLS et RGB à HLS et 
+trouver le point de rupture entre les deux couleurs.*/
 * {
   box-sizing: border-box;
 }
 
 .blockpage {
   max-width: 1400px;
+  margin: auto;
 }
 
-* {
+*,
+footer {
   font-family: "Roboto", sans-serif;
 }
 
@@ -21,23 +29,7 @@ a:active {
   color: unset;
 }
 
-p {
-  font-family: "Roboto", sans-serif;
-  font-size: 1.2rem;
-  font-weight: 200;
-}
-
-button {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 1rem;
-}
-button i {
-  font-size: 1.3rem;
-}
-
 h1 {
-  font-family: "Roboto", sans-serif;
   font-weight: 600;
   font-size: 1.6rem;
 }
@@ -49,27 +41,46 @@ h2 {
 }
 
 p {
-  font-family: "Roboto", sans-serif;
-  font-size: 1.2rem;
   font-weight: 200;
+  font-size: 1.2rem;
 }
 
-.card h3 {
-  font-family: "Roboto", sans-serif;
+button {
+  font-weight: 400;
+  font-size: 1rem;
+}
+button i {
+  font-size: 1.3rem;
+}
+
+.card h3,
+.starters h3,
+.maincourses h3,
+.desserts h3 {
   font-weight: 600;
   font-size: 1.1rem;
   padding: 0 0 8px 0;
 }
-.card p {
-  font-family: "Roboto", sans-serif;
-  font-size: 1rem;
+.card p,
+.starters p,
+.maincourses p,
+.desserts p {
+  font-size: 0.9rem;
   font-weight: 300;
 }
-.card__new {
-  font-family: "Roboto", sans-serif;
+.card__new,
+.starters__new,
+.maincourses__new,
+.desserts__new {
   font-weight: 400;
   font-size: 1rem;
   color: #278870;
+}
+.card span,
+.starters span,
+.maincourses span,
+.desserts span {
+  font-weight: 800;
 }
 
 /***footer***/
@@ -78,13 +89,12 @@ footer {
 }
 footer h4 {
   font-family: "Shrikhand";
-  font-size: 1.2rem;
   letter-spacing: 1px;
+  font-size: 1.2rem;
 }
 footer li a {
-  font-family: "Roboto", sans-serif;
-  font-size: 0.95rem;
   font-weight: 400;
+  font-size: 1rem;
 }
 footer li a .fas fa-hands-helping {
   font-size: 12px;
@@ -92,7 +102,6 @@ footer li a .fas fa-hands-helping {
 
 .searchbar {
   color: rgb(74, 74, 74);
-  font-family: "Roboto", sans-serif;
 }
 .searchbar input {
   font-size: 0.95rem;
@@ -104,36 +113,15 @@ footer li a .fas fa-hands-helping {
 }
 
 .menu h1 {
-  font-family: "shrikhand";
+  font-family: "Shrikhand";
   letter-spacing: 1px;
   font-size: 1.6rem;
 }
 .menu h2 {
   text-transform: uppercase;
-  font-size: 1.2rem;
   font-weight: 200;
+  font-size: 1.2rem;
   padding: 40px 0 10px;
-}
-
-.starters h3,
-.maincourses h3,
-.desserts h3 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 600;
-  font-size: 1.1rem;
-  padding: 0 0 8px 0;
-}
-.starters p,
-.maincourses p,
-.desserts p {
-  font-family: "Roboto", sans-serif;
-  font-size: 0.9rem;
-  font-weight: 300;
-}
-.starters span,
-.maincourses span,
-.desserts span {
-  font-weight: 800;
 }
 
 .boxC {
@@ -196,6 +184,178 @@ footer li a .fas fa-hands-helping {
   padding-right: 50px;
 }
 
+.searchbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  background-color: rgba(1, 1, 1, 0.1);
+}
+.searchbar input {
+  height: 100%;
+  width: fit-content;
+  display: flex;
+  text-align: center;
+  background: none;
+  border: none;
+  padding: 0 10px;
+}
+.searchbar input:focus-visible {
+  outline: none;
+}
+.searchbar input::placeholder {
+  width: fit-content;
+  /* axe amélioration: fit content partiellement accepté,
+    mais répondait au comportement désiré, possible en js */
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 0 15px 0;
+  max-width: 100%;
+  box-shadow: 0px 4px 4px lightgrey;
+}
+.header img {
+  height: 30px;
+}
+
+footer {
+  background: #4f4f4f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 20px;
+  padding: 20px 20px;
+}
+footer h4 {
+  padding: 20px 0;
+}
+footer li {
+  padding-bottom: 10px;
+}
+footer span {
+  padding-left: 7px;
+}
+footer i {
+  padding-right: 7px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+.button__cta {
+  /*les boutons violets, présents sur accueil et menu*/
+  background: radial-gradient(at 30% -90%, #ff79da 20px, #9256dc);
+  width: fit-content;
+  height: 50px;
+  color: rgb(246, 246, 246);
+  border-radius: 25px;
+  padding: 0 20px;
+  box-shadow: 3px 3px 10px rgb(200, 200, 200);
+  transition: background 3s, box-shadow 4400ms;
+}
+.button__cta:hover {
+  background: radial-gradient(at 30% -90%, #fface8 20px, #ad80e5);
+  box-shadow: 8px 8px 15px rgb(170, 170, 170);
+}
+
+.box {
+  width: 97%;
+  position: relative;
+  margin-bottom: 20px;
+}
+.box__label {
+  position: absolute;
+  z-index: 2;
+  left: -15px;
+  top: 17.5px;
+  background-color: #9256dc;
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  color: rgb(246, 246, 246);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box__button {
+  /* - les boutons de fonctionnement, présents sur home, gris > violet
+     - choix d'un alignement des i et textes sur la gauche (et non centré) pour les garder groupés*/
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 65px;
+  font-weight: 500;
+  border-radius: 15px;
+  box-shadow: 3px 3px 10px rgb(220, 220, 220);
+  background-color: #f7f7f7;
+}
+.box__button i {
+  padding: 0 25px;
+  color: rgb(130, 130, 130);
+}
+.box__button:hover {
+  background-color: #f4eefc;
+}
+.box__button:hover i {
+  color: #9256dc;
+}
+.box__button span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.like {
+  padding: 3px 2px 0 2px;
+  background: linear-gradient(to bottom, transparent 50%, #ff79da 7px, #9256dc);
+  color: transparent;
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.3rem;
+  cursor: cell;
+  -webkit-text-stroke: 2px black;
+  transition: all ease-in 400ms;
+  background-size: 1% 200%;
+}
+.like--empty {
+  display: none;
+}
+.like:hover {
+  background-position: 0 -100%;
+  -webkit-text-stroke: 2px transparent;
+}
+
+.header__button {
+  /*les boutons du header de menu pour revenir à accueil*/
+  background: none;
+  color: black;
+  display: unset;
+  position: absolute;
+  top: 30px;
+  left: 10px;
+  padding: 0 20px;
+}
+
+/* les boutons pour valider choix,
+    apparaissent avec un survol
+    Le visiteur peut ajouter les plats qu'il souhaite 
+    à sa commande en cliquant dessus. Cela fait 
+    apparaître une petite coche à droite du plat. 
+    Cette coche devra coulisser de la droite vers 
+    la gauche. Pour cette première version, l’effet 
+    peut apparaître au survol sur desktop au lieu du 
+    clic. Si l’intitulé du plat est trop long, il devra 
+    être rogné avec des points de suspension. Un exemple 
+    de l’effet attendu est fourni.*/
 .dish {
   display: flex;
   align-items: center;
@@ -203,6 +363,9 @@ footer li a .fas fa-hands-helping {
   border-radius: 20px;
   height: 80px;
   box-shadow: 3px 3px 5px rgb(220, 220, 220);
+  transform: translateY(50%);
+  opacity: 0;
+  animation: section-menu 1000ms forwards cubic-bezier(0.88, 0.47, 0.12, 1.09);
 }
 .dish__description {
   padding: 20px 20px;
@@ -260,6 +423,36 @@ footer li a .fas fa-hands-helping {
   font-size: 1.5rem;
   transform: rotate(0deg);
 }
+.dish--1 {
+  animation-delay: 300ms;
+}
+.dish--2 {
+  animation-delay: 400ms;
+}
+.dish--3 {
+  animation-delay: 500ms;
+}
+.dish--4 {
+  animation-delay: 600ms;
+}
+.dish--5 {
+  animation-delay: 700ms;
+}
+.dish--6 {
+  animation-delay: 800ms;
+}
+.dish--7 {
+  animation-delay: 900ms;
+}
+.dish--8 {
+  animation-delay: 1000ms;
+}
+.dish--9 {
+  animation-delay: 1100ms;
+}
+.dish--10 {
+  animation-delay: 1200ms;
+}
 
 @keyframes section-menu {
   0% {
@@ -274,240 +467,13 @@ footer li a .fas fa-hands-helping {
     opacity: 1;
   }
 }
-section {
-  width: 100%;
-  height: 100%;
-}
-section .dish {
-  transform: translateY(50%);
-  opacity: 0;
-  animation: section-menu 1000ms forwards cubic-bezier(0.88, 0.47, 0.12, 1.09);
-}
-section .dish--1 {
-  animation-delay: 1100ms;
-}
-section .dish--2 {
-  animation-delay: 1200ms;
-}
-section .dish--3 {
-  animation-delay: 1300ms;
-}
-section .dish--4 {
-  animation-delay: 1400ms;
-}
-section .dish--5 {
-  animation-delay: 1500ms;
-}
-section .dish--6 {
-  animation-delay: 1600ms;
-}
-section .dish--7 {
-  animation-delay: 1700ms;
-}
-section .dish--8 {
-  animation-delay: 1800ms;
-}
-section .dish--9 {
-  animation-delay: 1900ms;
-}
-section .dish--10 {
-  animation-delay: 2000ms;
-}
-
-.searchbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  width: 100%;
-  background-color: rgba(1, 1, 1, 0.1);
-  /*fond transparent pour récupérer l'ombre, pourquoi pas z-index? 
-    (car j'ai essayé et ça ne marchait pas, (restriction d'utilisaiton
-     avec certaines balises sémantiques?)*/
-}
-.searchbar input {
-  height: 100%;
-  width: fit-content;
-  display: flex;
-  text-align: center;
-  background: none;
-  border: none;
-  padding: 0 10px;
-}
-.searchbar input:focus-visible {
-  outline: none;
-}
-.searchbar input::placeholder {
-  width: fit-content;
-  /* axe amélioration: fit content partiellement accepté,
-    mais répondait au comportement désiré, possible en js */
-}
-
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 25px 0 15px 0;
-  max-width: 100%;
-  box-shadow: 0px 4px 4px lightgrey;
-}
-.header img {
-  height: 30px;
-}
-
-footer {
-  background: #4f4f4f;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px 20px;
-}
-footer h4 {
-  padding: 20px 0;
-}
-footer li {
-  padding-bottom: 10px;
-}
-footer span {
-  padding-left: 7px;
-}
-footer i {
-  padding-right: 7px;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-}
-
-.button__cta {
-  /*les boutons violets, présents sur accueil et menu*/
-  /* test plutôt sympa:
-    background: linear-gradient(
-    to right bottom,
-    $colour-secondary,
-    $colour-primary 60px
-  );*/
-  background: radial-gradient(at 30% -90%, #ff79da 20px, #9256dc);
-  width: fit-content;
-  height: 50px;
-  color: rgb(246, 246, 246);
-  border-radius: 25px;
-  padding: 0 20px;
-  box-shadow: 3px 3px 10px rgb(200, 200, 200);
-  transition: background 1s, box-shadow 400ms;
-}
-.button__cta:hover {
-  background: radial-gradient(at 30% -90%, #fface8 20px, #ad80e5);
-  box-shadow: 8px 8px 15px rgb(170, 170, 170);
-}
-
-.box {
-  width: 97%;
-  position: relative;
-  margin-bottom: 20px;
-}
-.box__label {
-  position: absolute;
-  z-index: 2;
-  left: -15px;
-  top: 17.5px;
-  background-color: #9256dc;
-  height: 30px;
-  width: 30px;
-  border-radius: 15px;
-  color: rgb(246, 246, 246);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.box__button {
-  /* - les boutons de fonctionnement, présents sur home, gris > violet
-     - choix d'un alignement des i et textes sur la gauche (et non centré)*/
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  position: relative;
-  width: 100%;
-  height: 65px;
-  font-weight: 500;
-  border-radius: 15px;
-  box-shadow: 3px 3px 10px rgb(220, 220, 220);
-  background-color: #f7f7f7;
-  /* - une fonction pour définir la couleur de i par rapport au fond
-  - utilisation cette fonction avec des teintes de couleur primaire en survol*/
-}
-.box__button i {
-  padding: 0 25px;
-  color: rgb(130, 130, 130);
-}
-.box__button:hover {
-  background-color: #f4eefc;
-}
-.box__button:hover i {
-  color: #9256dc;
-}
-.box__button span {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.like {
-  padding: 3px 2px 0 2px;
-  background: linear-gradient(to bottom, transparent 50%, #ff79da 7px, #9256dc);
-  color: transparent;
-  background-clip: border-box;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 1.3rem;
-  cursor: cell;
-  -webkit-text-stroke: 2px black;
-  transition: all ease-in 400ms;
-  background-size: 1% 200%;
-}
-.like--empty {
-  display: none;
-}
-.like:hover {
-  background-position: 0 -100%;
-  -webkit-text-stroke: 2px transparent;
-}
-
-.header__button {
-  /*les boutons du header de menu
-    pour revenir à accueil*/
-  background: none;
-  color: black;
-  display: unset;
-  position: absolute;
-  top: 30px;
-  left: 10px;
-  padding: 0 20px;
-}
-
-.button__checked {
-  /* les boutons pour valider choix,
-    apparaissent avec un survol
-    Le visiteur peut ajouter les plats qu'il souhaite 
-    à sa commande en cliquant dessus. Cela fait 
-    apparaître une petite coche à droite du plat. 
-    Cette coche devra coulisser de la droite vers 
-    la gauche. Pour cette première version, l’effet 
-    peut apparaître au survol sur desktop au lieu du 
-    clic. Si l’intitulé du plat est trop long, il devra 
-    être rogné avec des points de suspension. Un exemple 
-    de l’effet attendu est fourni.*/
-}
-
 #presentation {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 40px 20px;
   background-color: rgb(246, 246, 246);
   text-align: center;
-  align-items: center;
-  padding: 40px 20px;
 }
 #presentation h1 {
   padding: 0 40px 20px 40px;
@@ -550,11 +516,9 @@ button {
   border-radius: 0 0 25px 25px;
   transform-origin: top;
   animation: disparition 1.2s ease-out 2.2s normal both;
-  padding: 40px 20px;
 }
 .spinner__container {
   height: 30%;
-  border-radius: 15px;
   transform: translateY(0%);
   display: flex;
   justify-content: center;
@@ -574,7 +538,7 @@ button {
   top: 0px;
   left: 40px;
   transform: rotate(calc(15deg * var(--i)));
-  /*placement des bulles, mettre autant de bulles que de span (comment fonctionne var(--i)?*/
+  /*placement des bulles, mettre autant de bulles que de span (TODO comment fonctionne var(--i)?*/
 }
 .spinner__container__circle span::before {
   content: "";
@@ -615,7 +579,7 @@ button {
     opacity: 0.15;
   }
   80% {
-    opacity: 0;
+    opacity: 0.15;
   }
   100% {
     transform: translateY(-200%);
@@ -658,6 +622,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 40px 20px;
   background-color: rgb(246, 246, 246);
   border-radius: 40px;
   margin-top: -40px;
@@ -665,18 +630,19 @@ button {
 .menu__text__heading {
   display: flex;
   justify-content: space-between;
-  padding: 40px 20px 0 0;
 }
 .menu__text__heading .like {
   display: flex;
   align-items: flex-end;
+  padding-right: 20px;
 }
 .menu__text__cta {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 40px;
+  padding: 40px 20px;
   align-items: center;
+  padding-bottom: 0px;
 }
 
 .starters,

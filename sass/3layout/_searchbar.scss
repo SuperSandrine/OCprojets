@@ -5,9 +5,6 @@
   height: 50px;
   width: 100%;
   background-color: rgba(1, 1, 1, 0.1);
-  /*fond transparent pour récupérer l'ombre, pourquoi pas z-index? 
-    (car j'ai essayé et ça ne marchait pas, (restriction d'utilisaiton
-     avec certaines balises sémantiques?)*/
   input {
     height: 100%;
     width: fit-content;

@@ -4,3 +4,14 @@ $colour-accent: #99e2d0;
 
 $colour-achromatic: rgb(246, 246, 246);
 $colour-darkachromatic: rgb(130, 130, 130);
+
+$breakpoints: (
+  mobile: 767px,
+  tablet: 991,
+  desktop: 992,
+);
+
+// variables de l'animation du bouton .dish:
+$num-section: 10;
+$anim-dur: 1000ms;
+$anim-delay: calc($anim-dur / $num-section);

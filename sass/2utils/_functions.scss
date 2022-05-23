@@ -5,5 +5,10 @@
     @return lighten($colour, 36%);
   }
 }
-// il m'a fallu passer de la valeur HEX à HLS et RGB à HLS
-// et trouver le point de rupture entre les deux couleurs
+
+/*  - une fonction pour définir la couleur de i par rapport au 
+fond sur la section fonctionnement de la page d'accueil 
+    - utilisation de cette fonction avec les teintes de couleur des 
+variables qui change en survol.
+    - il m'a fallu passer de la valeur HEX à HLS et RGB à HLS et 
+trouver le point de rupture entre les deux couleurs.*/
