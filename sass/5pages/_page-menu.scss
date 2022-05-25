@@ -1,25 +1,37 @@
 .menu {
   &__image {
-    background: no-repeat center/100%
-      url("../img/restaurants/jay-wennington-N_Y88TWmGwA-unsplashsmall.jpg");
-    @include menu-backgroundimage-size;
+    &--LPDG {
+      background: no-repeat center/100%
+        url("../img/restaurants/jay-wennington-N_Y88TWmGwA-unsplashsmall.jpg");
+      @include menu-backgroundimage-size(map-get($menu-bgimg-size, mobile));
+      @include tablet-only {
+        background: no-repeat center/100%
+          url("../img/restaurants/jay-wennington-N_Y88TWmGwA-unsplashbig.jpg");
+        @include menu-backgroundimage-size(map-get($menu-bgimg-size, tablet));
+      }
+      @include desktop-only {
+        background: no-repeat center/100%
+          url("../img/restaurants/jay-wennington-N_Y88TWmGwA-unsplashbig.jpg");
+        @include menu-backgroundimage-size(map-get($menu-bgimg-size, desktop));
+      }
+    }
 
     &--LNE {
       // TODO est- ce qu'on peut donner une distance de bottom pour
       // positionner l'image
       background: no-repeat center/100%
         url("../img/restaurants/stil-u2Lp8tXIcjw-unsplashsmallportrait.jpg");
-      @include menu-backgroundimage-size;
+      @include menu-backgroundimage-size(map-get($menu-bgimg-size, mobile));
     }
     &--ALF {
       background: no-repeat center/100%
         url("../img/restaurants/toa-heftiba-DQKerTsQwi0-unsplashsmall.jpg");
-      @include menu-backgroundimage-size;
+      @include menu-backgroundimage-size(map-get($menu-bgimg-size, mobile));
     }
     &--LDDS {
       background: no-repeat center/100%
         url("../img/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplashsmall.jpg");
-      @include menu-backgroundimage-size;
+      @include menu-backgroundimage-size(map-get($menu-bgimg-size, mobile));
     }
   }
   &__text {

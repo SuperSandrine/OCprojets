@@ -24,8 +24,8 @@
   font-weight: 600;
 }
 
-@mixin menu-backgroundimage-size {
-  height: 250px;
+@mixin menu-backgroundimage-size($size: 200px) {
+  height: $size;
 }
 
 @mixin background-radgrad {
@@ -34,4 +34,20 @@
     $colour-secondary 20px,
     $colour-primary
   );
+}
+
+@mixin mobile-only {
+  @media screen and (max-width: map-get($breakpoints, mobile)) {
+    @content;
+  }
+}
+@mixin tablet-only {
+  @media screen and (min-width: map-get($breakpoints, tablet-min)) and (max-width: map-get($breakpoints, tablet)) {
+    @content;
+  }
+}
+@mixin desktop-only {
+  @media screen and (min-width: map-get($breakpoints, desktop)) {
+    @content;
+  }
 }

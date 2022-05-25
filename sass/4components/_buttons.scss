@@ -4,22 +4,38 @@ button {
 }
 
 .button__cta {
-  /*les boutons violets, présents sur accueil et menu*/
+  /*les boutons violets, présents sur accueil et menu
+  - Penser à rajouter une div avec la classe bg pour l'effet au survol*/
   @include background-radgrad;
   width: fit-content;
   height: 50px;
   color: $colour-achromatic;
   border-radius: 25px;
   padding: 0 20px;
+  position: relative;
+  z-index: 1;
   box-shadow: 3px 3px 10px rgb(200, 200, 200);
-  transition: background 3s, box-shadow 4400ms;
   &:hover {
+    & .button__cta--bg {
+      opacity: 1;
+    }
+  }
+  &--bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border-radius: 25px;
     background: radial-gradient(
       at 30% -90%,
       lighten($colour-secondary, 10%) 20px,
       lighten($colour-primary, 10%)
     );
+    opacity: 0;
+    z-index: -1;
     box-shadow: 8px 8px 15px rgb(170, 170, 170);
+    transition: opacity 500ms, box-shadow 500ms;
   }
 }
 
@@ -28,6 +44,10 @@ button {
   width: 97%;
   position: relative;
   margin-bottom: 20px;
+  @include desktop-only {
+    width: calc(((100% - (2 * 3%)) - (2 * 20px)) / 3);
+    max-width: 300px;
+  }
   &__label {
     position: absolute;
     z-index: 2;

@@ -1,9 +1,8 @@
 footer {
   background: darken($colour-darkachromatic, 20%);
   @include flexcolumn;
-  padding: 20px 20px;
   h4 {
-    padding: 20px 0;
+    padding-bottom: 20px;
   }
   li {
     padding-bottom: 10px;
@@ -14,10 +13,34 @@ footer {
   i {
     padding-right: 7px;
   }
-  // TODO : une i fait 12px l'autre 19px, il faudrait trouver le moyen
-  // de leur faire obtenir le meme width, pour éviter de bidouiller
-  // l'alignement entre les paddings droits et gauches
-  // >>il faut modifier le fontsize du i de la mainserrée, mettre un 12px,
-  // c'est chercher le pixel perfect.
+  @include tablet-only {
+    padding-left: 120px;
+    padding-right: 120px;
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      :nth-child(2n) {
+        order: 1;
+      }
+      li {
+        width: 50%;
+      }
+    }
+  }
+  @include desktop-only {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    li {
+      width: 25%;
+    }
+  }
 }
+
+// TODO : une i fait 12px l'autre 19px, il faudrait trouver le moyen
+// de leur faire obtenir le meme width, pour éviter de bidouiller
+// l'alignement entre les paddings droits et gauches
+// >>il faut modifier le fontsize du i de la mainserrée, mettre un 12px,
+// c'est chercher le pixel perfect.
 // la suite du footer se trouve dans typography...

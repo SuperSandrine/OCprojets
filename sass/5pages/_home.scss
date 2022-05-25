@@ -16,6 +16,16 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    @include tablet-only {
+      width: 300px;
+      margin: auto;
+    }
+    @include desktop-only {
+      flex-direction: row;
+      justify-content: center;
+      padding-left: 15px;
+      column-gap: 40px;
+    }
   }
 }
 
@@ -28,12 +38,25 @@
     display: flex;
     flex-direction: column;
     row-gap: 20px;
+    @include tablet-only {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    @include desktop-only {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
   }
 }
 
 .spinner {
   width: 100%;
-  height: 150%;
+  height: 100%;
   @include background-radgrad;
   z-index: 99;
   opacity: 1;
@@ -129,7 +152,6 @@
     opacity: 0.3;
     box-shadow: 0 0 20px white;
   }
-  80%,
   100% {
     transform: scale(0);
     opacity: 0.3;
