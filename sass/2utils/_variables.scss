@@ -20,5 +20,15 @@ $menu-bgimg-size: (
 
 // variables de l'animation du bouton .dish:
 $num-section: 10;
-$anim-dur: 1000ms;
+$anim-dur: 1s;
 $anim-delay: calc($anim-dur / $num-section);
+
+/*variable pour paramétrer l'horloge du spinner de la page d'accueil, définir
+la longueur de l'aiguille des minutes (height-minute-hand), et c'est tout !!*/
+$height-minute-hand: 32px;
+$line-weight: calc($height-minute-hand / 4);
+$height-hour-hand: calc((2 / 3) * $height-minute-hand);
+$clock-diameter: $height-minute-hand * 3; // bord inclus grâce au paramètre borderbox
+$round-hand: calc($height-minute-hand / 8);
+$big: 1s;
+$small: $big * 12;

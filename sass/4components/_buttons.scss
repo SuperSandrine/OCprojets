@@ -8,10 +8,9 @@ button {
   - Penser à rajouter une div avec la classe bg pour l'effet au survol*/
   @include background-radgrad;
   width: fit-content;
-  height: 50px;
   color: $colour-achromatic;
-  border-radius: 25px;
-  padding: 0 20px;
+  border-radius: 30px;
+  padding: 20px 20px;
   position: relative;
   z-index: 1;
   box-shadow: 3px 3px 10px rgb(200, 200, 200);
@@ -26,7 +25,7 @@ button {
     right: 0;
     left: 0;
     bottom: 0;
-    border-radius: 25px;
+    border-radius: 30px;
     background: radial-gradient(
       at 30% -90%,
       lighten($colour-secondary, 10%) 20px,
@@ -179,7 +178,9 @@ button {
   }
   &__selection {
     background-color: $colour-accent;
+
     color: white;
+    display: inline-block;
     height: 80px;
     min-width: 0px;
     max-width: 0px;
