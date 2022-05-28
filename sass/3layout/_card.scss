@@ -35,7 +35,19 @@
       border-radius: 3px;
     }
     &__image {
-      height: 200px;
+      @media screen and (max-width: map-get($breakpoints, small-mobile)) {
+        height: 200px;
+      }
+      @media screen and (min-width: calc( map-get($breakpoints, small-mobile) + 1px)) and (max-width: map-get($breakpoints, tablet)) {
+        height: 300px;
+      }
+      @include tablet-only {
+        height: 250px;
+      }
+      @include desktop-only {
+        height: 250px;
+      }
+
       &--portrait {
         object-fit: cover;
         object-position: 50% 62%;
@@ -45,7 +57,7 @@
       }
       &--landscape {
         object-fit: cover;
-        object-position: bottom;
+        object-position: 50% 75%;
         width: 100%;
         height: 100%;
         border-radius: 15px 15px 0 0;

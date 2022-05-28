@@ -3,6 +3,24 @@ button {
   border: none;
 }
 
+// .button__cta {
+//   width: fit-content;
+//   color: $colour-achromatic;
+//   border-radius: 30px;
+//   padding: 20px 20px;
+//   box-shadow: 3px 3px 10px rgb(200, 200, 200);
+//   @include background-radgrad;
+//   transition: all 3s;
+//   &:hover {
+//     box-shadow: 8px 8px 15px rgb(170, 170, 170);
+//     background: radial-gradient(
+//       at 30% -90%,
+//       lighten($colour-secondary, 10%) 20px,
+//       lighten($colour-primary, 10%)
+//     );
+//   }
+// }
+
 .button__cta {
   /*les boutons violets, présents sur accueil et menu
   - Penser à rajouter une div avec la classe bg pour l'effet au survol*/
@@ -38,7 +56,8 @@ button {
   }
 }
 
-// bouton de la section fonctionnement sur accueil
+/*  - les boutons de fonctionnement, présents sur home, gris > violet
+    - choix d'un alignement des i et textes sur la gauche (et non centré) pour les garder groupés*/
 .box {
   width: 97%;
   position: relative;
@@ -62,8 +81,6 @@ button {
     align-items: center;
   }
   &__button {
-    /* - les boutons de fonctionnement, présents sur home, gris > violet
-       - choix d'un alignement des i et textes sur la gauche (et non centré) pour les garder groupés*/
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -95,10 +112,7 @@ button {
 .like {
   // Au clic, il devra se remplir progressivement. Pour cette première version,
   // l’effet peut être apparaître au survol sur desktop au lieu du clic.
-  &--empty {
-    display: none;
-  }
-  padding: 3px 2px 0 2px;
+  padding: 4px 2px 0 2px;
   background: linear-gradient(
     to bottom,
     transparent 50%,
@@ -145,10 +159,9 @@ button {
     de l’effet attendu est fourni.*/
 .dish {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   background-color: white;
   border-radius: 20px;
-  height: 80px;
   box-shadow: 3px 3px 5px rgb(220, 220, 220);
   &__description {
     padding: 20px 20px;
@@ -178,10 +191,7 @@ button {
   }
   &__selection {
     background-color: $colour-accent;
-
     color: white;
-    display: inline-block;
-    height: 80px;
     min-width: 0px;
     max-width: 0px;
     border-radius: 0 20px 20px 0;

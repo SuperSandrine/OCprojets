@@ -1,6 +1,9 @@
 footer {
   background: darken($colour-darkachromatic, 20%);
   @include flexcolumn;
+  @include desktop-only {
+    padding: 40px 60px;
+  }
   h4 {
     padding-bottom: 20px;
   }
@@ -19,6 +22,7 @@ footer {
     ul {
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-between;
       :nth-child(2n) {
         order: 1;
       }

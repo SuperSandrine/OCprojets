@@ -1,0 +1,106 @@
+.spinner {
+  width: 100%;
+  height: 100%;
+  @include background-radgrad;
+  z-index: 99;
+  opacity: 1;
+  position: fixed;
+  border-radius: 0 0 25px 25px;
+  transform-origin: top;
+  animation: disparition 1.2s ease-out 2.2s normal both;
+  &__container {
+    height: 60%;
+    width: 100%;
+    position: fixed;
+    top: 30%;
+    transform: translateY(0%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: position 3s cubic-bezier(0.32, -0.31, 0.19, 1.35) 1s normal both;
+    //container permet à l'horloge de glisser vers le haut (fond transparent pour lui)
+    &__clock {
+      border: $line-weight solid $colour-accent;
+      border-radius: 50%;
+      height: $clock-diameter;
+      width: $clock-diameter;
+      position: relative;
+      top: 0;
+      left: 0;
+      &:after {
+        /*aiguille minute*/
+        content: "";
+        position: absolute;
+        background: $colour-accent;
+        top: calc(
+          ($clock-diameter / 2) - ($height-minute-hand - ($round-hand/2)) -
+            $line-weight
+        ); /* éloignement du bord supérieur du cadre clock, on enlève
+          les pixels utilisés pour éviter les défauts, soit la longueure de
+          l'aiguille (ici: height), la bordure du cadran et la moitié du border-radius,
+          comme pour les ariculations des marionnettes*/
+        left: calc(($clock-diameter / 2) - $line-weight - ($line-weight / 2));
+        /* idem, on enlève la bordure du cadran et la moitié de width */
+        height: $height-minute-hand; /*longueur de l'aiguille*/
+        width: $line-weight;
+        border-radius: $round-hand;
+        transform-origin: 50% calc($height-minute-hand - ($round-hand) / 2); /*on choisit le point d'origin du mouvement,
+          soit au milieu de la barre sur X, et pour Y: en bas, un petit peu au dessus
+          du bord (idéalement, la moitié de border-radius, soit 2.5px)*/
+        animation: aiguille $big linear infinite;
+      }
+      &:before {
+        /*aiguille seconde*/
+        content: "";
+        position: absolute;
+        background: $colour-accent;
+        top: calc(
+          ($clock-diameter / 2) - ($height-hour-hand - ($round-hand/2)) -
+            $line-weight
+        );
+        left: calc(($clock-diameter / 2) - $line-weight - ($line-weight / 2));
+        height: $height-hour-hand;
+        width: $line-weight;
+        border-radius: $round-hand;
+        transform-origin: 50% calc($height-hour-hand - ($round-hand) / 2);
+        animation: aiguille $small linear infinite;
+      }
+    }
+  }
+}
+
+@keyframes aiguille {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes position {
+  0% {
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(-120%);
+  }
+}
+@keyframes disparition {
+  0% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(0%);
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.15;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}

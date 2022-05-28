@@ -103,6 +103,9 @@ footer {
     @include tablet-only {
       padding-left: 40px;
     }
+    @include desktop-only {
+      padding-left: 60px;
+    }
   }
   h2 {
     text-transform: uppercase;
