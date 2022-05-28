@@ -85,12 +85,17 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        -moz-column-gap: 20px;
+        -webkit-column-gap: 20px;
         column-gap: 20px;
       }
       @include desktop-only {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        -moz-column-gap: 20px;
+
+        -webkit-column-gap: 20px;
         column-gap: 20px;
       }
     }
@@ -117,6 +122,6 @@
   }
   h2 {
     border-bottom: 5px solid $colour-accent;
-    width: 70px; //longueur trait sous le titre
+    width: 70px; //longueur trait sous le sous-titre
   }
 }

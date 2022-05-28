@@ -39,24 +39,28 @@
         height: 200px;
       }
       @media screen and (min-width: calc( map-get($breakpoints, small-mobile) + 1px)) and (max-width: map-get($breakpoints, tablet)) {
-        height: 300px;
+        height: 250px;
       }
       @include tablet-only {
-        height: 250px;
+        height: 225px;
       }
       @include desktop-only {
         height: 250px;
       }
 
       &--portrait {
+        -o-object-fit: cover;
         object-fit: cover;
+        -o-object-position: 50% 62%;
         object-position: 50% 62%;
         width: 100%;
         height: 100%;
         border-radius: 15px 15px 0 0;
       }
       &--landscape {
+        -o-object-fit: cover;
         object-fit: cover;
+        -o-object-position: 50% 75%;
         object-position: 50% 75%;
         width: 100%;
         height: 100%;
@@ -73,9 +77,10 @@
       background-color: white;
       padding: 20px;
       border-radius: 0 0 15px 15px;
-      //TODO comment faire our faire disparaitre le défaut à l'affichage,
-      //une ligne grise à partir d'affichage à 480px.
-      //> j'ai changé la max width à 320px dans boxC.
+      //Comment faire pour faire disparaitre le défaut à l'affichage,
+      //une ligne grise à partir d'affichage à 480px. > j'ai supprimé
+      //tous les heights et les aspect-ratio pour rendre les boites plus
+      //flexibles et maintenables
       &__text {
         display: flex;
         flex-direction: column;

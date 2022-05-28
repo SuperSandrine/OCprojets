@@ -25,6 +25,8 @@ button {
   /*les boutons violets, présents sur accueil et menu
   - Penser à rajouter une div avec la classe bg pour l'effet au survol*/
   @include background-radgrad;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   color: $colour-achromatic;
   border-radius: 30px;
@@ -221,15 +223,31 @@ button {
   }
   transform: translateY(50%);
   opacity: 0;
+  -webkit-animation: section-menu $anim-dur forwards
+    cubic-bezier(0.88, 0.47, 0.12, 1.09);
   animation: section-menu $anim-dur forwards
     cubic-bezier(0.88, 0.47, 0.12, 1.09);
   @for $i from 1 through $num-section {
     &--#{$i} {
+      -webkit-animation-delay: (($anim-delay * $i) + 200ms);
       animation-delay: (($anim-delay * $i) + 200ms);
       //l'animation delay ne fonctionne pas comme mon test sur codepen >
       //problème résolu lié à la syntaxe d'interpolation et au BEM
-      //TODO vérifier exception dans cours de animation delay
     }
+  }
+}
+
+@-webkit-keyframes section-menu {
+  0% {
+    transform: translateY(50%); //pour que le dish arrive de loin, mettre 1300%
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.3; //crée un décallage entre la position et la transparence
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
   }
 }
 
