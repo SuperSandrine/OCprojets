@@ -9,6 +9,8 @@
     height: 100%;
     width: -webkit-fit-content;
     width: -moz-fit-content;
+    width: -ms-fit-content;
+    width: -o-fit-content;
     width: fit-content;
     display: flex;
     text-align: center;
@@ -27,25 +29,20 @@
     &::-moz-placeholder {
       width: -moz-fit-content;
       width: fit-content;
-      /* axe amélioration: fit content partiellement accepté,
-        mais répondait au comportement désiré, possible en js */
     }
     &:-ms-input-placeholder {
       width: fit-content;
-      /* axe amélioration: fit content partiellement accepté,
-        mais répondait au comportement désiré, possible en js */
     }
     &::-ms-input-placeholder {
       width: fit-content;
-      /* axe amélioration: fit content partiellement accepté,
-        mais répondait au comportement désiré, possible en js */
     }
     &::placeholder {
       width: -webkit-fit-content;
       width: -moz-fit-content;
+      width: -moz-fit-content;
+      width: -ms-fit-content;
+      width: -o-fit-content;
       width: fit-content;
-      /* axe amélioration: fit content partiellement accepté,
-        mais répondait au comportement désiré, possible en js */
     }
   }
 }

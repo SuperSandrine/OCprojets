@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*variable pour paramétrer l'horloge du spinner de la page d'accueil, définir
 la longueur de l'aiguille des minutes (height-minute-hand), et c'est tout !!*/
-/*  - une fonction pour définir la couleur de i par rapport au 
+/*  >créer une fonction pour définir la couleur de i par rapport au 
 fond sur la section fonctionnement de la page d'accueil 
     - utilisation de cette fonction avec les teintes de couleur des 
 variables qui change en survol.
@@ -215,8 +215,8 @@ footer li a:hover {
 .boxC .card__image--portrait {
   -o-object-fit: cover;
   object-fit: cover;
-  -o-object-position: 50% 62%;
-  object-position: 50% 62%;
+  -o-object-position: 50% 61%;
+  object-position: 50% 61%;
   width: 100%;
   height: 100%;
   border-radius: 15px 15px 0 0;
@@ -258,6 +258,8 @@ footer li a:hover {
   height: 100%;
   width: -webkit-fit-content;
   width: -moz-fit-content;
+  width: -ms-fit-content;
+  width: -o-fit-content;
   width: fit-content;
   display: flex;
   text-align: center;
@@ -277,25 +279,20 @@ footer li a:hover {
 .searchbar input::-moz-placeholder {
   width: -moz-fit-content;
   width: fit-content;
-  /* axe amélioration: fit content partiellement accepté,
-    mais répondait au comportement désiré, possible en js */
 }
 .searchbar input:-ms-input-placeholder {
   width: fit-content;
-  /* axe amélioration: fit content partiellement accepté,
-    mais répondait au comportement désiré, possible en js */
 }
 .searchbar input::-ms-input-placeholder {
   width: fit-content;
-  /* axe amélioration: fit content partiellement accepté,
-    mais répondait au comportement désiré, possible en js */
 }
 .searchbar input::placeholder {
   width: -webkit-fit-content;
   width: -moz-fit-content;
+  width: -moz-fit-content;
+  width: -ms-fit-content;
+  width: -o-fit-content;
   width: fit-content;
-  /* axe amélioration: fit content partiellement accepté,
-    mais répondait au comportement désiré, possible en js */
 }
 
 .header {
@@ -329,10 +326,10 @@ footer li {
   padding-bottom: 10px;
 }
 footer span {
-  padding-left: 7px;
+  font-size: 11px;
 }
 footer i {
-  padding-right: 7px;
+  padding-right: 12px;
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
   footer {
@@ -366,12 +363,14 @@ button {
   border: none;
 }
 
-.button__cta {
-  /*les boutons violets, présents sur accueil et menu
+/*les boutons violets, présents sur accueil et menu
   - Penser à rajouter une div avec la classe bg pour l'effet au survol*/
+.button__cta {
   background: radial-gradient(at 30% -90%, #ff79da 20px, #9256dc);
   width: -webkit-fit-content;
   width: -moz-fit-content;
+  width: -ms-fit-content;
+  width: -o-fit-content;
   width: fit-content;
   color: rgb(246, 246, 246);
   border-radius: 30px;
@@ -454,24 +453,44 @@ button {
 
 .like {
   padding: 4px 2px 0 2px;
-  background: linear-gradient(to bottom, transparent 50%, #ff79da 7px, #9256dc);
+  background: -webkit-linear-gradient(to bottom, transparent 45%, #ff79da 5%, #9256dc);
+  background: -moz-linear-gradient(to bottom, transparent 45%, #ff79da 5%, #9256dc);
+  background: -ms-linear-gradient(to bottom, transparent 45%, #ff79da 5%, #9256dc);
+  background: -o-linear-gradient(to bottom, transparent 45%, #ff79da 5%, #9256dc);
+  background: linear-gradient(to bottom, transparent 45%, #ff79da 5%, #9256dc);
   color: transparent;
+  -webkit-background-clip: border-box;
+  -moz-background-clip: border-box;
+  -ms-background-clip: border-box;
+  -o-background-clip: border-box;
   background-clip: border-box;
   -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -ms-background-clip: text;
+  -o-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  -ms-text-fill-color: transparent;
+  -o-text-fill-color: transparent;
   font-size: 1.3rem;
   cursor: cell;
   -webkit-text-stroke: 2px black;
+  -moz-text-stroke: 2px black;
+  -ms-text-stroke: 2px black;
+  -o-text-stroke: 2px black;
   transition: all ease-in 400ms;
   background-size: 1% 200%;
 }
 .like:hover {
   background-position: 0 -100%;
   -webkit-text-stroke: 2px transparent;
+  -moz-text-stroke: 2px transparent;
+  -ms-text-stroke: 2px transparent;
+  -o-text-stroke: 2px transparent;
 }
 
+/*les boutons du header de menu pour revenir à accueil*/
 .header__button {
-  /*les boutons du header de menu pour revenir à accueil*/
   background: none;
   color: black;
   display: unset;
@@ -481,17 +500,14 @@ button {
   padding: 0 20px;
 }
 
-/* les boutons pour valider choix,
-    apparaissent avec un survol
-    Le visiteur peut ajouter les plats qu'il souhaite 
-    à sa commande en cliquant dessus. Cela fait 
-    apparaître une petite coche à droite du plat. 
-    Cette coche devra coulisser de la droite vers 
-    la gauche. Pour cette première version, l’effet 
-    peut apparaître au survol sur desktop au lieu du 
-    clic. Si l’intitulé du plat est trop long, il devra 
-    être rogné avec des points de suspension. Un exemple 
-    de l’effet attendu est fourni.*/
+/* les boutons pour valider choix, apparaissent avec un survol
+    Le visiteur peut ajouter les plats qu'il souhaite à sa commande 
+    en cliquant dessus. Cela fait apparaître une petite coche à 
+    droite du plat. Cette coche devra coulisser de la droite vers 
+    la gauche. Pour cette première version, l’effet peut apparaître 
+    au survol sur desktop au lieu du clic. Si l’intitulé du plat est
+    trop long, il devra être rogné avec des points de suspension. Un
+    exemple de l’effet attendu est fourni.*/
 .dish {
   display: flex;
   align-items: stretch;
@@ -501,6 +517,9 @@ button {
   transform: translateY(50%);
   opacity: 0;
   -webkit-animation: section-menu 1s forwards cubic-bezier(0.88, 0.47, 0.12, 1.09);
+  -moz-animation: section-menu 1s forwards cubic-bezier(0.88, 0.47, 0.12, 1.09);
+  -ms-animation: section-menu 1s forwards cubic-bezier(0.88, 0.47, 0.12, 1.09);
+  -o-animation: section-menu 1s forwards cubic-bezier(0.88, 0.47, 0.12, 1.09);
   animation: section-menu 1s forwards cubic-bezier(0.88, 0.47, 0.12, 1.09);
 }
 .dish__description {
@@ -560,46 +579,79 @@ button {
 }
 .dish--1 {
   -webkit-animation-delay: 0.3s;
+  -moz-animation-delay: 0.3s;
+  -ms-animation-delay: 0.3s;
   animation-delay: 0.3s;
 }
 .dish--2 {
   -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  -ms-animation-delay: 0.4s;
   animation-delay: 0.4s;
 }
 .dish--3 {
   -webkit-animation-delay: 0.5s;
+  -moz-animation-delay: 0.5s;
+  -ms-animation-delay: 0.5s;
   animation-delay: 0.5s;
 }
 .dish--4 {
   -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  -ms-animation-delay: 0.6s;
   animation-delay: 0.6s;
 }
 .dish--5 {
   -webkit-animation-delay: 0.7s;
+  -moz-animation-delay: 0.7s;
+  -ms-animation-delay: 0.7s;
   animation-delay: 0.7s;
 }
 .dish--6 {
   -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+  -ms-animation-delay: 0.8s;
   animation-delay: 0.8s;
 }
 .dish--7 {
   -webkit-animation-delay: 0.9s;
+  -moz-animation-delay: 0.9s;
+  -ms-animation-delay: 0.9s;
   animation-delay: 0.9s;
 }
 .dish--8 {
   -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  -ms-animation-delay: 1s;
   animation-delay: 1s;
 }
 .dish--9 {
   -webkit-animation-delay: 1.1s;
+  -moz-animation-delay: 1.1s;
+  -ms-animation-delay: 1.1s;
   animation-delay: 1.1s;
 }
 .dish--10 {
   -webkit-animation-delay: 1.2s;
+  -moz-animation-delay: 1.2s;
+  -ms-animation-delay: 1.2s;
   animation-delay: 1.2s;
 }
 
 @-webkit-keyframes section-menu {
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+@-moz-keyframes section-menu {
   0% {
     transform: translateY(50%);
     opacity: 0;
@@ -635,6 +687,9 @@ button {
   border-radius: 0 0 25px 25px;
   transform-origin: top;
   -webkit-animation: disparition 1.2s ease-out 2.2s normal both;
+  -moz-animation: disparition 1.2s ease-out 2.2s normal both;
+  -ms-animation: disparition 1.2s ease-out 2.2s normal both;
+  -o-animation: disparition 1.2s ease-out 2.2s normal both;
   animation: disparition 1.2s ease-out 2.2s normal both;
 }
 .spinner__container {
@@ -647,6 +702,9 @@ button {
   justify-content: center;
   align-items: center;
   -webkit-animation: position 3s cubic-bezier(0.32, -0.31, 0.19, 1.35) 1s normal both;
+  -moz-animation: position 3s cubic-bezier(0.32, -0.31, 0.19, 1.35) 1s normal both;
+  -ms-animation: position 3s cubic-bezier(0.32, -0.31, 0.19, 1.35) 1s normal both;
+  -o-animation: position 3s cubic-bezier(0.32, -0.31, 0.19, 1.35) 1s normal both;
   animation: position 3s cubic-bezier(0.32, -0.31, 0.19, 1.35) 1s normal both;
 }
 .spinner__container__clock {
@@ -676,9 +734,12 @@ button {
   border-radius: 4px;
   transform-origin: 50% 30px;
   /*on choisit le point d'origin du mouvement,
-  soit au milieu de la barre sur X, et pour Y: en bas, un petit peu au dessus
-  du bord (idéalement, la moitié de border-radius, soit 2.5px)*/
+    soit au milieu de la barre sur X, et pour Y: en bas, un petit peu au dessus
+    du bord (idéalement, la moitié de border-radius, soit 2.5px)*/
   -webkit-animation: aiguille 1s linear infinite;
+  -moz-animation: aiguille 1s linear infinite;
+  -ms-animation: aiguille 1s linear infinite;
+  -o-animation: aiguille 1s linear infinite;
   animation: aiguille 1s linear infinite;
 }
 .spinner__container__clock:before {
@@ -693,10 +754,21 @@ button {
   border-radius: 4px;
   transform-origin: 50% 19.3333333333px;
   -webkit-animation: aiguille 12s linear infinite;
+  -moz-animation: aiguille 1s linear infinite;
+  -ms-animation: aiguille 1s linear infinite;
+  -o-animation: aiguille 1s linear infinite;
   animation: aiguille 12s linear infinite;
 }
 
 @-webkit-keyframes aiguille {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes aiguille {
   0% {
     transform: rotate(0deg);
   }
@@ -720,6 +792,14 @@ button {
     transform: translateY(-120%);
   }
 }
+@-moz-keyframes position {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-120%);
+  }
+}
 @keyframes position {
   0% {
     transform: translateY(0%);
@@ -729,6 +809,23 @@ button {
   }
 }
 @-webkit-keyframes disparition {
+  0% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(0%);
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.15;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+@-moz-keyframes disparition {
   0% {
     transform: translateY(0%);
     opacity: 1;
@@ -799,8 +896,10 @@ button {
     flex-direction: row;
     justify-content: center;
     padding-left: 15px;
-    -moz-column-gap: 40px;
     -webkit-column-gap: 40px;
+    -moz-column-gap: 40px;
+    -ms-column-gap: 40px;
+    -o-column-gap: 40px;
     column-gap: 40px;
   }
 }
@@ -841,29 +940,32 @@ button {
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .menu__image--LPDG {
     background: no-repeat center/100% url("../img/restaurants/jay-wennington-N_Y88TWmGwA-unsplashbig.jpg");
-    height: 300px;
+    height: 350px;
   }
 }
 @media screen and (min-width: 992px) {
   .menu__image--LPDG {
     background: no-repeat center/100% url("../img/restaurants/jay-wennington-N_Y88TWmGwA-unsplashbig.jpg");
-    height: 400px;
+    height: 450px;
   }
 }
 .menu__image--LNE {
   background: no-repeat center/100% url("../img/restaurants/stil-u2Lp8tXIcjw-unsplashsmallportrait.jpg");
+  background-position: 50% 63%;
   height: 250px;
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .menu__image--LNE {
     background: no-repeat center/100% url("../img/restaurants/stil-u2Lp8tXIcjw-unsplashbig.jpg");
-    height: 300px;
+    height: 350px;
+    background-position: 50% 63%;
   }
 }
 @media screen and (min-width: 992px) {
   .menu__image--LNE {
     background: no-repeat center/100% url("../img/restaurants/stil-u2Lp8tXIcjw-unsplashbig.jpg");
-    height: 400px;
+    height: 450px;
+    background-position: 50% 63%;
   }
 }
 .menu__image--ALF {
@@ -873,13 +975,13 @@ button {
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .menu__image--ALF {
     background: no-repeat center/100% url("../img/restaurants/toa-heftiba-DQKerTsQwi0-unsplashbig.jpg");
-    height: 300px;
+    height: 350px;
   }
 }
 @media screen and (min-width: 992px) {
   .menu__image--ALF {
     background: no-repeat center/100% url("../img/restaurants/toa-heftiba-DQKerTsQwi0-unsplashbig.jpg");
-    height: 400px;
+    height: 450px;
   }
 }
 .menu__image--LDDS {
@@ -889,13 +991,13 @@ button {
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .menu__image--LDDS {
     background: no-repeat center/100% url("../img/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplashbig.jpg");
-    height: 300px;
+    height: 350px;
   }
 }
 @media screen and (min-width: 992px) {
   .menu__image--LDDS {
     background: no-repeat center/100% url("../img/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplashbig.jpg");
-    height: 400px;
+    height: 450px;
   }
 }
 .menu__text {
@@ -921,8 +1023,10 @@ button {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    -moz-column-gap: 20px;
     -webkit-column-gap: 20px;
+    -moz-column-gap: 20px;
+    -ms-column-gap: 20px;
+    -o-column-gap: 20px;
     column-gap: 20px;
   }
 }
@@ -931,8 +1035,10 @@ button {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    -moz-column-gap: 20px;
     -webkit-column-gap: 20px;
+    -moz-column-gap: 20px;
+    -ms-column-gap: 20px;
+    -o-column-gap: 20px;
     column-gap: 20px;
   }
 }

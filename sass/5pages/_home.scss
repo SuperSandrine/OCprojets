@@ -24,8 +24,11 @@
       flex-direction: row;
       justify-content: center;
       padding-left: 15px;
-      -moz-column-gap: 40px;
+
       -webkit-column-gap: 40px;
+      -moz-column-gap: 40px;
+      -ms-column-gap: 40px;
+      -o-column-gap: 40px;
       column-gap: 40px;
     }
   }

@@ -8,6 +8,9 @@
   border-radius: 0 0 25px 25px;
   transform-origin: top;
   -webkit-animation: disparition 1.2s ease-out 2.2s normal both;
+  -moz-animation: disparition 1.2s ease-out 2.2s normal both;
+  -ms-animation: disparition 1.2s ease-out 2.2s normal both;
+  -o-animation: disparition 1.2s ease-out 2.2s normal both;
   animation: disparition 1.2s ease-out 2.2s normal both;
   &__container {
     height: 60%;
@@ -20,6 +23,12 @@
     align-items: center;
     -webkit-animation: position 3s cubic-bezier(0.32, -0.31, 0.19, 1.35) 1s
       normal both;
+    -moz-animation: position 3s cubic-bezier(0.32, -0.31, 0.19, 1.35) 1s normal
+      both;
+    -ms-animation: position 3s cubic-bezier(0.32, -0.31, 0.19, 1.35) 1s normal
+      both;
+    -o-animation: position 3s cubic-bezier(0.32, -0.31, 0.19, 1.35) 1s normal
+      both;
     animation: position 3s cubic-bezier(0.32, -0.31, 0.19, 1.35) 1s normal both;
     //container permet à l'horloge de glisser vers le haut (fond transparent pour lui)
     &__clock {
@@ -47,10 +56,14 @@
         height: $height-minute-hand; /*longueur de l'aiguille*/
         width: $line-weight;
         border-radius: $round-hand;
-        transform-origin: 50% calc($height-minute-hand - ($round-hand) / 2); /*on choisit le point d'origin du mouvement,
+        transform-origin: 50% calc($height-minute-hand - ($round-hand) / 2);
+        /*on choisit le point d'origin du mouvement,
           soit au milieu de la barre sur X, et pour Y: en bas, un petit peu au dessus
           du bord (idéalement, la moitié de border-radius, soit 2.5px)*/
         -webkit-animation: aiguille $big linear infinite;
+        -moz-animation: aiguille $big linear infinite;
+        -ms-animation: aiguille $big linear infinite;
+        -o-animation: aiguille $big linear infinite;
         animation: aiguille $big linear infinite;
       }
       &:before {
@@ -68,6 +81,9 @@
         border-radius: $round-hand;
         transform-origin: 50% calc($height-hour-hand - ($round-hand) / 2);
         -webkit-animation: aiguille $small linear infinite;
+        -moz-animation: aiguille $big linear infinite;
+        -ms-animation: aiguille $big linear infinite;
+        -o-animation: aiguille $big linear infinite;
         animation: aiguille $small linear infinite;
       }
     }
@@ -75,6 +91,15 @@
 }
 
 @-webkit-keyframes aiguille {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes aiguille {
   0% {
     transform: rotate(0deg);
   }
@@ -102,6 +127,16 @@
   }
 }
 
+@-moz-keyframes position {
+  0% {
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(-120%);
+  }
+}
+
 @keyframes position {
   0% {
     transform: translateY(0%);
@@ -111,6 +146,7 @@
     transform: translateY(-120%);
   }
 }
+
 @-webkit-keyframes disparition {
   0% {
     transform: translateY(0%);
@@ -128,6 +164,25 @@
     opacity: 0;
   }
 }
+
+@-moz-keyframes disparition {
+  0% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(0%);
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.15;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
 @keyframes disparition {
   0% {
     transform: translateY(0%);

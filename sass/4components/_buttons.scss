@@ -3,30 +3,14 @@ button {
   border: none;
 }
 
-// .button__cta {
-//   width: fit-content;
-//   color: $colour-achromatic;
-//   border-radius: 30px;
-//   padding: 20px 20px;
-//   box-shadow: 3px 3px 10px rgb(200, 200, 200);
-//   @include background-radgrad;
-//   transition: all 3s;
-//   &:hover {
-//     box-shadow: 8px 8px 15px rgb(170, 170, 170);
-//     background: radial-gradient(
-//       at 30% -90%,
-//       lighten($colour-secondary, 10%) 20px,
-//       lighten($colour-primary, 10%)
-//     );
-//   }
-// }
-
-.button__cta {
-  /*les boutons violets, présents sur accueil et menu
+/*les boutons violets, présents sur accueil et menu
   - Penser à rajouter une div avec la classe bg pour l'effet au survol*/
+.button__cta {
   @include background-radgrad;
   width: -webkit-fit-content;
   width: -moz-fit-content;
+  width: -ms-fit-content;
+  width: -o-fit-content;
   width: fit-content;
   color: $colour-achromatic;
   border-radius: 30px;
@@ -111,34 +95,73 @@ button {
   }
 }
 
+// Au clic, il devra se remplir progressivement. Pour cette première version,
+// l’effet peut être apparaître au survol sur desktop au lieu du clic.
 .like {
-  // Au clic, il devra se remplir progressivement. Pour cette première version,
-  // l’effet peut être apparaître au survol sur desktop au lieu du clic.
   padding: 4px 2px 0 2px;
+  background: -webkit-linear-gradient(
+    to bottom,
+    transparent 45%,
+    $colour-secondary 5%,
+    $colour-primary
+  );
+  background: -moz-linear-gradient(
+    to bottom,
+    transparent 45%,
+    $colour-secondary 5%,
+    $colour-primary
+  );
+  background: -ms-linear-gradient(
+    to bottom,
+    transparent 45%,
+    $colour-secondary 5%,
+    $colour-primary
+  );
+  background: -o-linear-gradient(
+    to bottom,
+    transparent 45%,
+    $colour-secondary 5%,
+    $colour-primary
+  );
   background: linear-gradient(
     to bottom,
-    transparent 50%,
-    $colour-secondary 7px,
+    transparent 45%,
+    $colour-secondary 5%,
     $colour-primary
   );
   color: transparent;
+  -webkit-background-clip: border-box;
+  -moz-background-clip: border-box;
+  -ms-background-clip: border-box;
+  -o-background-clip: border-box;
   background-clip: border-box;
   -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -ms-background-clip: text;
+  -o-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  -ms-text-fill-color: transparent;
+  -o-text-fill-color: transparent;
   font-size: 1.3rem;
   cursor: cell;
-  //TODO trouver la grosse main en cursor
   -webkit-text-stroke: 2px black; //dessine une ligne autour d'un text
+  -moz-text-stroke: 2px black;
+  -ms-text-stroke: 2px black;
+  -o-text-stroke: 2px black;
   transition: all ease-in 400ms;
   background-size: 1% 200%;
   &:hover {
     background-position: 0 -100%;
     -webkit-text-stroke: 2px transparent;
+    -moz-text-stroke: 2px transparent;
+    -ms-text-stroke: 2px transparent;
+    -o-text-stroke: 2px transparent;
   }
 }
 
+/*les boutons du header de menu pour revenir à accueil*/
 .header__button {
-  /*les boutons du header de menu pour revenir à accueil*/
   background: none;
   color: black;
   display: unset;
@@ -148,17 +171,14 @@ button {
   padding: 0 20px;
 }
 
-/* les boutons pour valider choix,
-    apparaissent avec un survol
-    Le visiteur peut ajouter les plats qu'il souhaite 
-    à sa commande en cliquant dessus. Cela fait 
-    apparaître une petite coche à droite du plat. 
-    Cette coche devra coulisser de la droite vers 
-    la gauche. Pour cette première version, l’effet 
-    peut apparaître au survol sur desktop au lieu du 
-    clic. Si l’intitulé du plat est trop long, il devra 
-    être rogné avec des points de suspension. Un exemple 
-    de l’effet attendu est fourni.*/
+/* les boutons pour valider choix, apparaissent avec un survol
+    Le visiteur peut ajouter les plats qu'il souhaite à sa commande 
+    en cliquant dessus. Cela fait apparaître une petite coche à 
+    droite du plat. Cette coche devra coulisser de la droite vers 
+    la gauche. Pour cette première version, l’effet peut apparaître 
+    au survol sur desktop au lieu du clic. Si l’intitulé du plat est
+    trop long, il devra être rogné avec des points de suspension. Un
+    exemple de l’effet attendu est fourni.*/
 .dish {
   display: flex;
   align-items: stretch;
@@ -212,7 +232,6 @@ button {
   }
   &:hover {
     cursor: pointer;
-    // TODO trouver la grosse main
     .dish__selection {
       min-width: 80px;
       i {
@@ -225,11 +244,19 @@ button {
   opacity: 0;
   -webkit-animation: section-menu $anim-dur forwards
     cubic-bezier(0.88, 0.47, 0.12, 1.09);
+  -moz-animation: section-menu $anim-dur forwards
+    cubic-bezier(0.88, 0.47, 0.12, 1.09);
+  -ms-animation: section-menu $anim-dur forwards
+    cubic-bezier(0.88, 0.47, 0.12, 1.09);
+  -o-animation: section-menu $anim-dur forwards
+    cubic-bezier(0.88, 0.47, 0.12, 1.09);
   animation: section-menu $anim-dur forwards
     cubic-bezier(0.88, 0.47, 0.12, 1.09);
   @for $i from 1 through $num-section {
     &--#{$i} {
       -webkit-animation-delay: (($anim-delay * $i) + 200ms);
+      -moz-animation-delay: (($anim-delay * $i) + 200ms);
+      -ms-animation-delay: (($anim-delay * $i) + 200ms);
       animation-delay: (($anim-delay * $i) + 200ms);
       //l'animation delay ne fonctionne pas comme mon test sur codepen >
       //problème résolu lié à la syntaxe d'interpolation et au BEM
@@ -239,11 +266,25 @@ button {
 
 @-webkit-keyframes section-menu {
   0% {
-    transform: translateY(50%); //pour que le dish arrive de loin, mettre 1300%
+    transform: translateY(50%);
     opacity: 0;
   }
   75% {
-    opacity: 0.3; //crée un décallage entre la position et la transparence
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes section-menu {
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.3;
   }
   100% {
     transform: translateY(0%);

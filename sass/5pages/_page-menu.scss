@@ -20,16 +20,19 @@
       // positionner l'image
       background: no-repeat center/100%
         url("../img/restaurants/stil-u2Lp8tXIcjw-unsplashsmallportrait.jpg");
+      background-position: 50% 63%;
       @include menu-backgroundimage-size(map-get($menu-bgimg-size, mobile));
       @include tablet-only {
         background: no-repeat center/100%
           url("../img/restaurants/stil-u2Lp8tXIcjw-unsplashbig.jpg");
         @include menu-backgroundimage-size(map-get($menu-bgimg-size, tablet));
+        background-position: 50% 63%;
       }
       @include desktop-only {
         background: no-repeat center/100%
           url("../img/restaurants/stil-u2Lp8tXIcjw-unsplashbig.jpg");
         @include menu-backgroundimage-size(map-get($menu-bgimg-size, desktop));
+        background-position: 50% 63%;
       }
     }
     &--ALF {
@@ -85,17 +88,20 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        -moz-column-gap: 20px;
         -webkit-column-gap: 20px;
+        -moz-column-gap: 20px;
+        -ms-column-gap: 20px;
+        -o-column-gap: 20px;
         column-gap: 20px;
       }
       @include desktop-only {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        -moz-column-gap: 20px;
-
         -webkit-column-gap: 20px;
+        -moz-column-gap: 20px;
+        -ms-column-gap: 20px;
+        -o-column-gap: 20px;
         column-gap: 20px;
       }
     }
