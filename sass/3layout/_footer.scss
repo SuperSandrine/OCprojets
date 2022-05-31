@@ -10,11 +10,11 @@ footer {
   li {
     padding-bottom: 10px;
   }
-  span {
-    font-size: 11px;
-  }
   i {
     padding-right: 12px;
+  }
+  .petite {
+    font-size: 11px;
   }
   @include tablet-only {
     padding-left: 120px;
